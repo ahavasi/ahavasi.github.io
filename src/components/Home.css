@@ -1,0 +1,35 @@
+.name {
+  color: #e0e1dd;
+}
+
+.home {
+  color: #e0e1dd;
+  display: flex;
+}
+
+.profile {
+  margin: 0 2rem;
+  text-align: left;
+}
+
+.social-btn-wrapper {
+  display: flex;
+  justify-content: space-around;
+  width: 20rem;
+  margin: 1rem auto;
+}
+
+.btn {
+  margin: 0 auto;
+}
+
+.profile--picture {
+  height: 20rem;
+  width: 20rem;
+  border-radius: 30px;
+  border: 2px solid #778da9;
+}
+
+.profile--content {
+  margin: 0 auto;
+}

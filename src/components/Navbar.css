@@ -1,0 +1,30 @@
+.nav--items {
+  list-style: none;
+  color: #e0e1dd;
+  display: flex;
+  padding-top: 10px;
+}
+
+.nav--items > li {
+  margin: 0 100px;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+}
+
+.nav--container {
+  background-color: #778da9;
+  filter: drop-shadow(#778da9 0px 10px 10px);
+  border-bottom: #415a77 solid 2px;
+}
+
+.projects {
+  appearance: none;
+  overflow: hidden;
+}
+
+.white-border {
+  border: 5px solid white;
+}
