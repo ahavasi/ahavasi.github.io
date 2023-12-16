@@ -26,7 +26,7 @@ export default {
   familiarities: "Angular, React, Jenkins, Tomcat",
   learning: "Actively enrolled in a React course to improve frontend skills",
   social: {
-    github: "https://www.linkedin.com/in/andre-havasi-63952316b/",
-    linkedin: "https://github.com/ahavasi",
+    linkedin: "https://www.linkedin.com/in/andre-havasi-63952316b/",
+    github: "https://github.com/ahavasi",
   },
 };
