@@ -1,6 +1,6 @@
 import React from "react";
 import "./Resume.css";
-import resumeData from "../resumeData";
+import resumeData from "../../resumeData";
 
 export default function Resume() {
   const experience = resumeData.experience;

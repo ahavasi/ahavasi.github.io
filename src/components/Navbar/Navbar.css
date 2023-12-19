@@ -1,0 +1,8 @@
+.nav--container {
+  background-color: #778da9;
+  filter: drop-shadow(#778da9 0px 10px 10px);
+}
+
+.white-border {
+  border: 5px solid white;
+}

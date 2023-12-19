@@ -1,7 +1,7 @@
 import React from "react";
-import profilePicture from "../assets/profile_picture.png";
+import profilePicture from "../../assets/profile_picture.png";
 import "./Home.css";
-import resumeData from "../resumeData";
+import resumeData from "../../resumeData";
 
 export default function Home() {
   return (
