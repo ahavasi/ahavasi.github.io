@@ -8,27 +8,3 @@ body {
 #root {
   height: 100%;
 }
-
-.fa-linkedin {
-  background: #007bb5;
-  color: white;
-}
-
-.fa-github {
-  background: #778da9;
-  color: #1b263b;
-}
-
-.fa {
-  padding: 20px;
-  font-size: 30px;
-  width: 50px;
-  text-align: center;
-  text-decoration: none;
-  margin: 5px 2px;
-  border-radius: 30px;
-}
-
-.white-border {
-  border: 5px solid white;
-}

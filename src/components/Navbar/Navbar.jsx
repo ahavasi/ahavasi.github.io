@@ -6,7 +6,10 @@ import {
   FileOutlined,
   HomeOutlined,
   ExperimentOutlined,
+  LinkedinOutlined,
+  GithubOutlined,
 } from "@ant-design/icons";
+import resumeData from "../../resumeData";
 
 const items = [
   {
@@ -41,6 +44,22 @@ const items = [
         label: <Link to="tenzies">Tenzies</Link>,
       },
     ],
+  },
+  {
+    label: (
+      <a href={resumeData.social.linkedin} target="_blank">
+        <LinkedinOutlined /> - LinkedIn
+      </a>
+    ),
+    key: "linkedin",
+  },
+  {
+    label: (
+      <a href={resumeData.social.github} target="_blank">
+        <GithubOutlined /> - GitHub
+      </a>
+    ),
+    key: "github",
   },
 ];
 

@@ -14,18 +14,6 @@ export default function Home() {
             src={profilePicture}
             alt="A close up of Andre Havasi smiling in a garage looking past the camera."
           />
-          <div className="social-btn-wrapper">
-            <a
-              className="fa-linkedin fa btn"
-              href={resumeData.social.linkedin}
-              target="_blank"
-            ></a>
-            <a
-              className="fa-github fa btn"
-              href={resumeData.social.github}
-              target="_blank"
-            ></a>
-          </div>
         </div>
         <div className="profile">
           <h2>Profile</h2>

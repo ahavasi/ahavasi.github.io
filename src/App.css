@@ -4,16 +4,12 @@
 }
 
 .dark {
-  /* background: #1b263b; */
   background: #001529;
-  /* color: #e0e1dd; */
   color: #ffffff;
 }
 
 .light {
-  /* background: #e0e1dd; */
   background: #ffffff;
-  /* color: #1b263b; */
   color: #001529;
 }
 
