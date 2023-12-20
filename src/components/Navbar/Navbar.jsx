@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
-import { Menu } from "antd";
+import { Menu, Switch } from "antd";
 import {
   FileOutlined,
   HomeOutlined,
@@ -20,44 +20,47 @@ const items = [
     icon: <FileOutlined />,
   },
   {
-    label: <Link to="projects">Projects</Link>,
+    label: "Projects",
     key: "projects",
     icon: <ExperimentOutlined />,
     children: [
       {
         type: "group",
-        label: <Link to="projects/airbnb">Airbnb Clone</Link>,
+        label: <Link to="airbnb">Airbnb Clone</Link>,
       },
       {
         type: "group",
-        label: <Link to="projects/meme-generator">Meme Generator</Link>,
+        label: <Link to="meme-generator">Meme Generator</Link>,
       },
       {
         type: "group",
-        label: <Link to="projects/react-facts">React Facts</Link>,
+        label: <Link to="react-facts">React Facts</Link>,
       },
       {
         type: "group",
-        label: <Link to="projects/tenzies">Tenzies</Link>,
+        label: <Link to="tenzies">Tenzies</Link>,
       },
     ],
   },
 ];
 
-export default function Navbar() {
+export default function Navbar(props) {
   const [current, setCurrent] = useState("home");
   const onClick = (e) => {
     setCurrent(e.key);
   };
   return (
-    <div className="nav--container">
+    <div className={`nav--container ${props.darkMode ? "dark" : "light"}`}>
       <Menu
         onClick={onClick}
         selectedKeys={[current]}
         mode="horizontal"
-        theme="dark"
+        theme={props.darkMode ? "dark" : "light"}
         items={items}
+        style={{ width: "80%" }}
       />
+      <p className="mode">{props.darkMode ? "Dark Mode" : "Light Mode"}</p>
+      <Switch defaultChecked onChange={props.onChangeDarkMode} />
     </div>
   );
 }

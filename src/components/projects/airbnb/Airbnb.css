@@ -3,6 +3,7 @@
   font-family: Poppins, sans-serif;
   box-sizing: border-box;
   background: white;
+  color: black;
 }
 
 .airbnb-nav {
@@ -41,11 +42,11 @@
 }
 
 .airbnb-hero--header {
-  margin-bottom: 16px;
+  margin: 20px 0 16px 20px;
 }
 
 .airbnb-hero--text {
-  margin-top: 0;
+  margin: 0 0 10px 20px;
 }
 
 .airbnb-cards-list {

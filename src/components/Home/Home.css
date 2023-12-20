@@ -1,10 +1,9 @@
-.name {
-  color: #e0e1dd;
+.home {
+  display: flex;
 }
 
-.home {
-  color: #e0e1dd;
-  display: flex;
+.name {
+  margin-left: 4rem;
 }
 
 .profile {

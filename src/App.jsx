@@ -4,28 +4,32 @@ import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
 import Airbnb from "./components/projects/airbnb/Airbnb";
-import Projects from "./components/Projects";
 import MemeGenerator from "./components/projects/meme-generator/MemeGenerator";
 import ReactFacts from "./components/projects/react-facts/ReactFacts";
 import Tenzies from "./components/projects/tenzies/Tenzies";
+import { useState } from "react";
 
 function App() {
+  const [darkMode, setDarkMode] = useState(true);
+  const onChangeDarkMode = (checked) => {
+    console.log(`switch to ${checked}`);
+    setDarkMode((prev) => !prev);
+  };
+  const darkModeStyle = darkMode ? "dark" : "light";
   return (
-    <>
-      <Navbar />
-      <div className="main">
+    <div className={`full ${darkModeStyle}`}>
+      <Navbar darkMode={darkMode} onChangeDarkMode={onChangeDarkMode} />
+      <div className="main-body">
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="resume" element={<Resume />}></Route>
-          <Route path="projects" element={<Projects />}>
-            <Route path="airbnb" element={<Airbnb />}></Route>
-            <Route path="meme-generator" element={<MemeGenerator />}></Route>
-            <Route path="react-facts" element={<ReactFacts />}></Route>
-            <Route path="tenzies" element={<Tenzies />}></Route>
-          </Route>
+          <Route path="airbnb" element={<Airbnb />}></Route>
+          <Route path="meme-generator" element={<MemeGenerator />}></Route>
+          <Route path="react-facts" element={<ReactFacts />}></Route>
+          <Route path="tenzies" element={<Tenzies />}></Route>
         </Routes>
       </div>
-    </>
+    </div>
   );
 }
 

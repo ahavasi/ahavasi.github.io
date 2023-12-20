@@ -1,6 +1,23 @@
-.main {
-  max-width: 1280px;
+.main-body {
+  /* max-width: 1280px; */
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+}
+
+.dark {
+  /* background: #1b263b; */
+  background: #001529;
+  /* color: #e0e1dd; */
+  color: #ffffff;
+}
+
+.light {
+  /* background: #e0e1dd; */
+  background: #ffffff;
+  /* color: #1b263b; */
+  color: #001529;
+}
+
+.full {
+  height: 100%;
 }
