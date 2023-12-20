@@ -57,10 +57,12 @@ export default function Navbar(props) {
         mode="horizontal"
         theme={props.darkMode ? "dark" : "light"}
         items={items}
-        style={{ width: "80%" }}
+        style={{ width: "93%" }}
       />
-      <p className="mode">{props.darkMode ? "Dark Mode" : "Light Mode"}</p>
-      <Switch defaultChecked onChange={props.onChangeDarkMode} />
+      <div className="darkmode-wrapper">
+        <p className="mode">{props.darkMode ? "Dark" : "Light"}</p>
+        <Switch defaultChecked onChange={props.onChangeDarkMode} />
+      </div>
     </div>
   );
 }
