@@ -10,9 +10,8 @@ import Tenzies from "./components/projects/tenzies/Tenzies";
 import { useState } from "react";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
   const onChangeDarkMode = (checked) => {
-    console.log(`switch to ${checked}`);
     setDarkMode((prev) => !prev);
   };
   const darkModeStyle = darkMode ? "dark" : "light";

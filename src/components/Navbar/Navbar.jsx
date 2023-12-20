@@ -69,7 +69,11 @@ export default function Navbar(props) {
     setCurrent(e.key);
   };
   return (
-    <div className={`nav--container ${props.darkMode ? "dark" : "light"}`}>
+    <div
+      className={`nav--container ${
+        props.darkMode ? "dark dark-shadow" : "light light-shadow"
+      }`}
+    >
       <Menu
         onClick={onClick}
         selectedKeys={[current]}
@@ -78,7 +82,7 @@ export default function Navbar(props) {
         items={items}
         style={{ width: "93%" }}
       />
-      <div className="darkmode-wrapper">
+      <div className={`darkmode-wrapper ${!props.darkMode && "light-border"}`}>
         <p className="mode">{props.darkMode ? "Dark" : "Light"}</p>
         <Switch defaultChecked onChange={props.onChangeDarkMode} />
       </div>

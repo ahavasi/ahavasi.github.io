@@ -1,7 +1,14 @@
 .nav--container {
-  filter: drop-shadow(#778da9 0px 10px 10px);
   display: flex;
   align-items: center;
+}
+
+.dark-shadow {
+  filter: drop-shadow(0px 2px 3px black);
+}
+
+.light-shadow {
+  filter: drop-shadow(0px 2px 3px #e1e1e1);
 }
 
 .mode {
@@ -13,4 +20,9 @@
   align-items: center;
   max-height: 40px;
   margin-right: 1rem;
+  margin-top: 5px;
+}
+
+.light-border {
+  border-bottom: 1px solid #f0f0f0;
 }
