@@ -5,7 +5,7 @@ import "./ReactFacts.css";
 
 function ReactFacts() {
   return (
-    <div className="fact-container">
+    <div className="fact-container" style={{ height: "100%" }}>
       <FactsNavbar />
       <FactsMain />
     </div>

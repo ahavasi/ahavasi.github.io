@@ -1,25 +1,41 @@
+import { Card, Flex, Layout } from "antd";
 import React from "react";
-import profilePicture from "../../assets/profile_picture.png";
-import "./Home.css";
 import resumeData from "../../resumeData";
+import "./Home.css";
+
+const { Header, Content } = Layout;
+const { Meta } = Card;
 
 export default function Home() {
   return (
-    <div>
-      <h1 className="name">Andre Havasi</h1>
-      <div className="home">
-        <div className="profile--content">
-          <img
-            className="profile--picture"
-            src={profilePicture}
-            alt="A close up of Andre Havasi smiling in a garage looking past the camera."
-          />
-        </div>
-        <div className="profile">
-          <h2>Profile</h2>
-          <p>{resumeData.profile}</p>
-        </div>
-      </div>
-    </div>
+    <Layout>
+      <Header style={{ background: "white" }}>
+        <Flex justify="center" align="center" style={{ height: "100%" }}>
+          <h1 style={{ height: "100%" }}>Andre Havasi</h1>
+        </Flex>
+      </Header>
+      <Content>
+        <Flex
+          justify="center"
+          align="center"
+          style={{ border: "1px solid red" }}
+        >
+          <Card
+            hoverable
+            style={{
+              width: 400,
+            }}
+            cover={
+              <img
+                alt="example"
+                src="https://media.licdn.com/dms/image/C4D03AQGhPaA4fHnVFQ/profile-displayphoto-shrink_800_800/0/1592691383777?e=1714003200&v=beta&t=-NEoUnFBtn7ZOWeoyby8mJtabDOjdfA7ceNjvkj1rXY"
+              />
+            }
+          >
+            <Meta title="Profile" description={resumeData.profile} />
+          </Card>
+        </Flex>
+      </Content>
+    </Layout>
   );
 }

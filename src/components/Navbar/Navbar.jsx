@@ -1,15 +1,16 @@
-import React, { useState } from "react";
-import "./Navbar.css";
-import { Link } from "react-router-dom";
-import { Menu, Switch } from "antd";
 import {
-  FileOutlined,
-  HomeOutlined,
   ExperimentOutlined,
-  LinkedinOutlined,
+  FileOutlined,
   GithubOutlined,
+  HomeOutlined,
+  LinkedinOutlined,
 } from "@ant-design/icons";
+import { Menu } from "antd";
+import Sider from "antd/es/layout/Sider";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import resumeData from "../../resumeData";
+import "./Navbar.css";
 
 const items = [
   {
@@ -48,44 +49,44 @@ const items = [
   {
     label: (
       <a href={resumeData.social.linkedin} target="_blank">
-        <LinkedinOutlined /> - LinkedIn
+        LinkedIn
       </a>
     ),
     key: "linkedin",
+    icon: <LinkedinOutlined />,
   },
   {
     label: (
       <a href={resumeData.social.github} target="_blank">
-        <GithubOutlined /> - GitHub
+        GitHub
       </a>
     ),
     key: "github",
+    icon: <GithubOutlined />,
   },
 ];
 
 export default function Navbar(props) {
   const [current, setCurrent] = useState("home");
+  const [collapsed, setCollapsed] = useState(false);
   const onClick = (e) => {
     setCurrent(e.key);
   };
   return (
-    <div
-      className={`nav--container ${
-        props.darkMode ? "dark dark-shadow" : "light light-shadow"
-      }`}
-    >
-      <Menu
-        onClick={onClick}
-        selectedKeys={[current]}
-        mode="horizontal"
-        theme={props.darkMode ? "dark" : "light"}
-        items={items}
-        style={{ width: "93%" }}
-      />
-      <div className={`darkmode-wrapper ${!props.darkMode && "light-border"}`}>
-        <p className="mode">{props.darkMode ? "Dark" : "Light"}</p>
-        <Switch defaultChecked onChange={props.onChangeDarkMode} />
-      </div>
-    </div>
+    <>
+      <Sider
+        collapsible
+        collapsed={collapsed}
+        onCollapse={(value) => setCollapsed(value)}
+        theme="light"
+      >
+        <Menu
+          onClick={onClick}
+          selectedKeys={[current]}
+          mode="inline"
+          items={items}
+        />
+      </Sider>
+    </>
   );
 }

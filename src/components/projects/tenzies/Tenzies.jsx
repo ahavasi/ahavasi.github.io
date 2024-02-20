@@ -93,7 +93,7 @@ export default function Tenzies() {
   ));
 
   return (
-    <main className="tenzies-main">
+    <main className="tenzies-main" style={{ height: "100%" }}>
       {tenzies && <Confetti />}
       <h1 className="title">Tenzies</h1>
       <p className="instructions">

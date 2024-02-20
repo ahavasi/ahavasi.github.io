@@ -4,7 +4,7 @@ import MemeHeader from "./MemeHeader";
 
 export default function MemeGenerator() {
   return (
-    <div className="meme-body">
+    <div className="meme-body" style={{ height: "100%" }}>
       <MemeHeader />
       <Meme />
     </div>

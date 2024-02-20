@@ -1,6 +1,6 @@
 import React from "react";
-import "./Resume.css";
 import resumeData from "../../resumeData";
+import "./Resume.css";
 
 export default function Resume() {
   const experience = resumeData.experience;
@@ -11,7 +11,7 @@ export default function Resume() {
     </div>
   ));
   return (
-    <div>
+    <div style={{ margin: "1rem" }}>
       <div className="resume--body">
         <div>
           <div>

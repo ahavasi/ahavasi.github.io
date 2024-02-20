@@ -10,7 +10,7 @@ export default function Airbnb() {
     return <AirbnbCard key={item.id} {...item} />;
   });
   return (
-    <div className="airbnb-body">
+    <div className="airbnb-body" style={{ height: "100%" }}>
       <AirbnbNavbar />
       <AirbnbHero />
       <section className="airbnb-cards-list airbnb-section">
