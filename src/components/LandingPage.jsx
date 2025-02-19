@@ -1,9 +1,23 @@
 import { GithubOutlined, LinkedinOutlined, MailOutlined } from '@ant-design/icons';
-import { Button, Card, Col, Row, Space, Typography } from 'antd';
+import { Button, Card, Col, Image, Row, Space, Typography } from 'antd';
 import { motion } from 'framer-motion';
 import resumeData from '../resumeData';
 import './LandingPage.css';
 import Navigation from './Navigation';
+
+const locationImages = [
+    {
+        src: '/locations/worthington.jpeg',
+        alt: 'Worthington, MN',
+        title: 'Worthington, MN'
+    },
+    {
+        src: '/locations/twin-cities.jpg',
+        alt: 'Twin Cities',
+        title: 'Twin Cities'
+    },
+    // Add more images as needed
+];
 
 const LandingPage = ({ darkMode, toggleDarkMode }) => {
     const containerVariants = {
@@ -30,21 +44,34 @@ const LandingPage = ({ darkMode, toggleDarkMode }) => {
                 animate="visible"
                 variants={containerVariants}
             >
+                {/* Background Images */}
                 <div className="hero-background">
-                    <img src="/locations/worthington.jpeg" alt="Worthington, MN" />
-                    {/* <img src="/locations/twin-cities.jpg" alt="Twin Cities" />
-                    <img src="/locations/umn.jpg" alt="University of Minnesota" />
-                    <img src="/locations/st-paul.jpg" alt="St. Paul" />
-                    <img src="/locations/downtown.jpg" alt="Downtown Minneapolis" />
-                    <img src="/locations/mall-of-america.jpg" alt="Mall of America" />
-                    <img src="/locations/minnesota-lake.jpg" alt="Minnesota Lake" />
-                    <img src="/locations/winter.jpg" alt="Minnesota Winter" />
-                    <img src="/locations/fall.jpg" alt="Minnesota Fall" />
-                    <img src="/locations/spring.jpg" alt="Minnesota Spring" />
-                    <img src="/locations/summer.jpg" alt="Minnesota Summer" />
-                    <img src="/locations/state-fair.jpg" alt="Minnesota State Fair" /> */}
+                    {locationImages.map((image, index) => (
+                        <motion.div
+                            key={index}
+                            variants={childVariants}
+                            className="image-container"
+                        >
+                            <Image
+                                src={image.src}
+                                alt={image.alt}
+                                title={image.title}
+                                preview={false}
+                                placeholder={
+                                    <div style={{
+                                        background: darkMode ? '#141414' : '#f5f5f5',
+                                        height: '100%'
+                                    }} />
+                                }
+                            />
+                        </motion.div>
+                    ))}
                 </div>
+
+                {/* Overlay */}
                 <div className="background-overlay"></div>
+
+                {/* Content */}
                 <Row align="middle" justify="center" className="hero-content">
                     <Col xs={24} md={12} className="hero-text">
                         <motion.div variants={childVariants}>
@@ -154,6 +181,10 @@ const LandingPage = ({ darkMode, toggleDarkMode }) => {
                                             alt="Andryte"
                                             src="/logos/andryte-logo.png"
                                             style={{ padding: '20px', background: '#f5f5f5' }}
+                                            onError={(e) => {
+                                                console.error('Failed to load image:', e.target.src);
+                                                e.target.style.display = 'none';
+                                            }}
                                         />
                                     }
                                 >
