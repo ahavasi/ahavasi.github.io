@@ -30,6 +30,20 @@ const LandingPage = ({ darkMode, toggleDarkMode }) => {
                 animate="visible"
                 variants={containerVariants}
             >
+                <div className="hero-background">
+                    <img src="/locations/worthington.jpeg" alt="Worthington, MN" />
+                    {/* <img src="/locations/twin-cities.jpg" alt="Twin Cities" />
+                    <img src="/locations/umn.jpg" alt="University of Minnesota" />
+                    <img src="/locations/st-paul.jpg" alt="St. Paul" />
+                    <img src="/locations/downtown.jpg" alt="Downtown Minneapolis" />
+                    <img src="/locations/mall-of-america.jpg" alt="Mall of America" />
+                    <img src="/locations/minnesota-lake.jpg" alt="Minnesota Lake" />
+                    <img src="/locations/winter.jpg" alt="Minnesota Winter" />
+                    <img src="/locations/fall.jpg" alt="Minnesota Fall" />
+                    <img src="/locations/spring.jpg" alt="Minnesota Spring" />
+                    <img src="/locations/summer.jpg" alt="Minnesota Summer" />
+                    <img src="/locations/state-fair.jpg" alt="Minnesota State Fair" /> */}
+                </div>
                 <div className="background-overlay"></div>
                 <Row align="middle" justify="center" className="hero-content">
                     <Col xs={24} md={12} className="hero-text">
@@ -138,7 +152,7 @@ const LandingPage = ({ darkMode, toggleDarkMode }) => {
                                     cover={
                                         <img
                                             alt="Andryte"
-                                            src="andryte-logo.png"
+                                            src="/logos/andryte-logo.png"
                                             style={{ padding: '20px', background: '#f5f5f5' }}
                                         />
                                     }
@@ -166,7 +180,7 @@ const LandingPage = ({ darkMode, toggleDarkMode }) => {
                                     cover={
                                         <img
                                             alt="LiftLogic"
-                                            src="liftlogic-logo.png"
+                                            src="/logos/liftlogic-logo.png"
                                             style={{ padding: '20px', background: '#f5f5f5' }}
                                         />
                                     }
@@ -194,7 +208,7 @@ const LandingPage = ({ darkMode, toggleDarkMode }) => {
                                     cover={
                                         <img
                                             alt="Equine Logistics LLC"
-                                            src="equine-logo.png"
+                                            src="/logos/equine-logo.png"
                                             style={{ padding: '20px', background: '#f5f5f5' }}
                                         />
                                     }
@@ -222,7 +236,7 @@ const LandingPage = ({ darkMode, toggleDarkMode }) => {
                                     cover={
                                         <img
                                             alt="Xclusive Labs"
-                                            src="xclusive-logo.png"
+                                            src="/logos/xclusive-logo.png"
                                             style={{ padding: '20px', background: '#f5f5f5' }}
                                         />
                                     }

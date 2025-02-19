@@ -8,6 +8,34 @@ const Navigation = ({ darkMode, toggleDarkMode }) => {
         element?.scrollIntoView({ behavior: 'smooth' });
     };
 
+    const menuItems = [
+        {
+            key: 'home',
+            label: 'Home',
+            onClick: () => scrollToSection('hero')
+        },
+        {
+            key: 'about',
+            label: 'About',
+            onClick: () => scrollToSection('about')
+        },
+        {
+            key: 'experience',
+            label: 'Experience',
+            onClick: () => scrollToSection('experience')
+        },
+        {
+            key: 'projects',
+            label: 'Projects',
+            onClick: () => scrollToSection('projects')
+        },
+        {
+            key: 'skills',
+            label: 'Skills',
+            onClick: () => scrollToSection('skills')
+        }
+    ];
+
     return (
         <motion.div
             className="navigation-container"
@@ -20,23 +48,8 @@ const Navigation = ({ darkMode, toggleDarkMode }) => {
                     mode="horizontal"
                     className="navigation-menu"
                     theme={darkMode ? "dark" : "light"}
-                >
-                    <Menu.Item key="home" onClick={() => scrollToSection('hero')}>
-                        Home
-                    </Menu.Item>
-                    <Menu.Item key="about" onClick={() => scrollToSection('about')}>
-                        About
-                    </Menu.Item>
-                    <Menu.Item key="experience" onClick={() => scrollToSection('experience')}>
-                        Experience
-                    </Menu.Item>
-                    <Menu.Item key="projects" onClick={() => scrollToSection('projects')}>
-                        Projects
-                    </Menu.Item>
-                    <Menu.Item key="skills" onClick={() => scrollToSection('skills')}>
-                        Skills
-                    </Menu.Item>
-                </Menu>
+                    items={menuItems}
+                />
                 <div className="dark-mode-toggle">
                     <Switch
                         checked={darkMode}
