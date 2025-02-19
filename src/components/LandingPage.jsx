@@ -1,13 +1,18 @@
 import { GithubOutlined, LinkedinOutlined, MailOutlined } from '@ant-design/icons';
 import { Button, Card, Col, Image, Row, Space, Typography } from 'antd';
 import { motion } from 'framer-motion';
+import worthingtonImg from '../assets/locations/worthington.jpeg';
+import andrytelogo from '../assets/logos/andryte-logo.png';
+import equinelogo from '../assets/logos/equine-logo.png';
+import liftlogiclogo from '../assets/logos/liftlogic-logo.png';
+import xclusivelogo from '../assets/logos/xclusive-logo.png';
 import resumeData from '../resumeData';
 import './LandingPage.css';
 import Navigation from './Navigation';
 
 const locationImages = [
     {
-        src: '/locations/worthington.jpeg',
+        src: worthingtonImg,
         alt: 'Worthington, MN',
         title: 'Worthington, MN'
     },
@@ -179,7 +184,7 @@ const LandingPage = ({ darkMode, toggleDarkMode }) => {
                                     cover={
                                         <img
                                             alt="Andryte"
-                                            src="/logos/andryte-logo.png"
+                                            src={andrytelogo}
                                             style={{ padding: '20px', background: '#f5f5f5' }}
                                             onError={(e) => {
                                                 console.error('Failed to load image:', e.target.src);
@@ -211,7 +216,7 @@ const LandingPage = ({ darkMode, toggleDarkMode }) => {
                                     cover={
                                         <img
                                             alt="LiftLogic"
-                                            src="/logos/liftlogic-logo.png"
+                                            src={liftlogiclogo}
                                             style={{ padding: '20px', background: '#f5f5f5' }}
                                         />
                                     }
@@ -239,7 +244,7 @@ const LandingPage = ({ darkMode, toggleDarkMode }) => {
                                     cover={
                                         <img
                                             alt="Equine Logistics LLC"
-                                            src="/logos/equine-logo.png"
+                                            src={equinelogo}
                                             style={{ padding: '20px', background: '#f5f5f5' }}
                                         />
                                     }
@@ -267,7 +272,7 @@ const LandingPage = ({ darkMode, toggleDarkMode }) => {
                                     cover={
                                         <img
                                             alt="Xclusive Labs"
-                                            src="/logos/xclusive-logo.png"
+                                            src={xclusivelogo}
                                             style={{ padding: '20px', background: '#f5f5f5' }}
                                         />
                                     }
