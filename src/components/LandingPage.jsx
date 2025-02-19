@@ -234,7 +234,7 @@ const LandingPage = ({ darkMode, toggleDarkMode }) => {
                                     <div className="card-actions">
                                         <Button
                                             type="primary"
-                                            href="https://www.xclusivesoftwarelabs.com"
+                                            href="https://www.xclusivelabs.com"
                                             target="_blank"
                                         >
                                             Visit Site
