@@ -1,10 +1,14 @@
 export default {
-  profile:
-    "My goal as a software developer is to produce efficient and clean code, whether it be through new features, bug fixes, or refactoring old and outdated code. I aspire to climb the ranks as a Software Developer and become a Staff Software Engineer, one day leading a team. While I specialize in Java backend development, I plan become more skilled in full-stack development through independent learning.",
+  profile: "Software Engineer | Entrepreneur | Co-Founder of Andryte & Xclusive Labs | Building LiftLogic. I graduated from the University of Minnesota, Twin Cities, with a Bachelor's degree in Computer Science and a minor in Mathematics in December of 2020. I'm currently a backend Java software engineer. I've co-founded Andryte, worked on multiple projects, and am currently building LiftLogic, a fitness app designed to generate personalized workouts and optimize performance through AI. Additionally, I'm co-founding Xclusive Labs, a company focused on high-end vehicle customization. I'm passionate about creating impactful technology, exploring new ideas, and always pushing the boundaries of what's possible. Whether it's backend development, full-stack applications, or diving into emerging tech, I'm always looking for exciting new ventures. Let's connect! Always open to discussing software, startups, and new opportunities.",
   experience: [
     {
+      id: 0,
+      title: "Software Engineer 2, Jamf; Remote — 2024-Present",
+      desc: "I'm a backend software engineer at Jamf, working on the Jamf Pro product. I'm responsible for building and maintaining the API endpoints that power the Jamf Pro product.",
+    },
+    {
       id: 1,
-      title: "Software Engineer 1, Jamf; Minneapolis, MN — 2021-Present",
+      title: "Software Engineer 1, Jamf; Minneapolis, MN — 2021-2024",
       desc: "As a SE 1 at Jamf I have improved my skills and knowledge on technologies listed below, as well as been involved in more demanding areas, including feature building, Angular, creating API endpoints, building Jenkins pipelines, Java upgrades for web applications, etc. I've also become more involved in work creation and refinement as well as team leading.",
     },
     {
@@ -22,7 +26,7 @@ export default {
   education:
     "University of Minnesota, Twin Cities, Minneapolis — Bachelor's of Science, Computer Science, Minor in Mathematics , 2020",
   skills:
-    "Java, Leadership, Mentoring, Collaboration, Communication, MySQL, Spring Boot Applications, Gradle",
+    "Java, Leadership, Mentoring, Collaboration, Communication, MySQL, Spring Boot Applications, Gradle, React, Product Manegement, SwiftUI, Node.js, Python, Docker, etc.",
   familiarities: "Angular, React, Jenkins, Tomcat",
   learning: "Actively enrolled in a React course to improve frontend skills",
   social: {

@@ -1,0 +1,384 @@
+.page-container {
+    overflow-x: hidden;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    background-image: url('../assets/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    padding-top: 64px;
+    /* Height of the navigation bar */
+}
+
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(5px);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.hero-text {
+    padding: 2rem;
+}
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* Profile Image */
+.profile-image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #1890ff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+}
+
+/* Typography */
+.hero-section h1.ant-typography {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(90deg, #1890ff, #722ed1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-section h2.ant-typography {
+    color: #666;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+/* Content Sections */
+.about-section,
+.experience-section,
+.projects-section,
+.skills-section {
+    padding: 5rem 0;
+    background: #fff;
+}
+
+.section-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.experience-item {
+    margin-bottom: 2rem;
+}
+
+.experience-item h4.ant-typography {
+    color: #1890ff;
+    margin-bottom: 0.5rem;
+}
+
+/* Social Links */
+.social-links {
+    margin-top: 2rem;
+}
+
+.ant-btn {
+    border-radius: 6px;
+    height: 48px;
+    padding: 0 24px;
+    transition: all 0.3s ease;
+}
+
+.ant-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark Mode */
+.dark .background-overlay {
+    background: rgba(0, 21, 41, 0.9);
+}
+
+.dark .about-section,
+.dark .experience-section,
+.dark .projects-section,
+.dark .skills-section {
+    background: #001529;
+}
+
+/* Dark mode text styles */
+.dark .ant-typography {
+    color: #fff;
+}
+
+.dark .ant-typography.ant-typography-secondary {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.dark .ant-typography.ant-typography-success {
+    color: #49aa19;
+}
+
+.dark .ant-typography.ant-typography-warning {
+    color: #d89614;
+}
+
+.dark .ant-typography.ant-typography-danger {
+    color: #a61d24;
+}
+
+.dark .ant-card-meta-description,
+.dark .ant-typography-paragraph {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.dark .experience-item h4.ant-typography {
+    color: #40a9ff;
+}
+
+/* Dark mode button styles */
+.dark .ant-btn-default {
+    background-color: transparent;
+    border-color: #434343;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.dark .ant-btn-default:hover {
+    border-color: #40a9ff;
+    color: #40a9ff;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .hero-section h1.ant-typography {
+        font-size: 2.5rem;
+    }
+
+    .hero-section h2.ant-typography {
+        font-size: 1.5rem;
+    }
+
+    .profile-image {
+        width: 200px;
+        height: 200px;
+    }
+
+    .social-links {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .social-links .ant-btn {
+        width: 100%;
+    }
+}
+
+/* Navigation */
+.navigation-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navigation-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+}
+
+.navigation-menu {
+    flex: 1;
+    border: none;
+    background: transparent;
+    justify-content: center;
+}
+
+.navigation-menu .ant-menu-item {
+    padding: 0 2rem;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.navigation-menu .ant-menu-item:hover {
+    color: #1890ff;
+}
+
+.dark-mode-toggle {
+    margin-left: 2rem;
+}
+
+.dark-mode-toggle .ant-switch {
+    background-color: #1890ff;
+}
+
+.dark-mode-toggle .ant-switch-checked {
+    background-color: #722ed1;
+}
+
+/* Dark mode styles for navigation */
+.dark .navigation-container {
+    background: rgba(0, 21, 41, 0.9);
+}
+
+.dark .navigation-menu {
+    background: transparent;
+}
+
+.dark .navigation-menu .ant-menu-item {
+    color: white;
+}
+
+.dark .navigation-menu .ant-menu-item:hover {
+    color: #40a9ff;
+}
+
+/* Mobile styles for navigation */
+@media (max-width: 768px) {
+    .navigation-wrapper {
+        padding: 0 1rem;
+    }
+
+    .navigation-menu .ant-menu-item {
+        padding: 0 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .dark-mode-toggle {
+        margin-left: 1rem;
+    }
+}
+
+/* Project Cards */
+.projects-section .ant-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 420px;
+}
+
+.projects-section .ant-card-cover {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.projects-section .ant-card-cover img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.projects-section .ant-card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+}
+
+.projects-section .ant-card-meta {
+    margin-bottom: 2rem;
+}
+
+.projects-section .ant-card-meta-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.projects-section .ant-card-meta-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    height: 2.8em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.card-actions {
+    margin-top: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 0.5rem;
+}
+
+.card-actions .ant-btn {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hover effects */
+.projects-section .ant-card:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
+
+/* Dark Mode */
+.dark .projects-section .ant-card {
+    background: #1f1f1f;
+    border-color: #303030;
+}
+
+.dark .projects-section .ant-card-meta-title {
+    color: #fff;
+}
+
+.dark .projects-section .ant-card-meta-description {
+    color: #a6a6a6;
+}
+
+.dark .projects-section .ant-card-cover {
+    background: #141414;
+}
+
+/* Update mobile styles */
+@media (max-width: 768px) {
+    .projects-section .ant-card {
+        min-height: 380px;
+    }
+
+    .projects-section .ant-card-cover {
+        height: 150px;
+    }
+
+    .card-actions {
+        grid-template-columns: 1fr;
+    }
+}

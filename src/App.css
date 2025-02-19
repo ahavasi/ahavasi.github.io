@@ -1,11 +1,30 @@
 .main-body {
   margin: 0;
   padding: 2rem;
+  min-height: calc(100vh - 64px);
+  /* Adjust based on your navbar height */
 }
 
 .dark {
   background: #001529;
   color: #ffffff;
+}
+
+.dark .landing-container h2.ant-typography {
+  color: #a6a6a6;
+}
+
+.dark .ant-card {
+  background: #1f1f1f;
+  border-color: #303030;
+}
+
+.dark .ant-card-meta-title {
+  color: #ffffff;
+}
+
+.dark .ant-card-meta-description {
+  color: #a6a6a6;
 }
 
 .light {
@@ -14,5 +33,5 @@
 }
 
 .full {
-  height: 100%;
+  min-height: 100vh;
 }
