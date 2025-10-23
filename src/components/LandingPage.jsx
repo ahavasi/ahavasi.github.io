@@ -2,10 +2,8 @@ import { GithubOutlined, LinkedinOutlined, MailOutlined } from '@ant-design/icon
 import { Button, Card, Col, Image, Row, Space, Typography } from 'antd';
 import { motion } from 'framer-motion';
 import worthingtonImg from '../assets/locations/worthington.jpeg';
-import andrytelogo from '../assets/logos/andryte-logo.png';
 import equinelogo from '../assets/logos/equine-logo.png';
 import liftlogiclogo from '../assets/logos/liftlogic-logo.png';
-import xclusivelogo from '../assets/logos/xclusive-logo.png';
 import resumeData from '../resumeData';
 import './LandingPage.css';
 import Navigation from './Navigation';
@@ -84,7 +82,7 @@ const LandingPage = ({ darkMode, toggleDarkMode }) => {
                                 Hello, I'm Andre Havasi
                             </Typography.Title>
                             <Typography.Title level={2}>
-                                Software Engineer at Jamf
+                                Software Engineer @ Jamf
                             </Typography.Title>
                             <Space size="middle" className="social-links">
                                 <Button
@@ -109,7 +107,7 @@ const LandingPage = ({ darkMode, toggleDarkMode }) => {
                                     type="primary"
                                     size="large"
                                     icon={<MailOutlined />}
-                                    href="mailto:andre.havasi@andryte.com"
+                                    href="mailto:andre.havasi@icloud.com"
                                 >
                                     Contact Me
                                 </Button>
@@ -119,7 +117,7 @@ const LandingPage = ({ darkMode, toggleDarkMode }) => {
                     <Col xs={24} md={12} className="hero-image">
                         <motion.div variants={childVariants}>
                             <img
-                                src={"https://media.licdn.com/dms/image/v2/D5603AQE2A9JcdBW8lA/profile-displayphoto-shrink_400_400/B56ZUf4JNaGQAg-/0/1739996566692?e=1745452800&v=beta&t=xR6PqZiKEa4hIJHFPoWQ2Gd5E31SXgLflsrwG9-ndKA"}
+                                src={"https://media.licdn.com/dms/image/v2/D5603AQFmkY928-Kddw/profile-displayphoto-scale_400_400/B56ZoR2y1nHIAg-/0/1761236168625?e=1762992000&v=beta&t=zV1-T9QkA0eVzJ0jq3tgRtifQV8SEHJ_mfEp5XQHyDA"}
                                 alt="Andre Havasi"
                                 className="profile-image"
                             />
@@ -183,41 +181,9 @@ const LandingPage = ({ darkMode, toggleDarkMode }) => {
                                     hoverable
                                     cover={
                                         <img
-                                            alt="Andryte"
-                                            src={andrytelogo}
-                                            style={{ padding: '20px', background: '#f5f5f5' }}
-                                            onError={(e) => {
-                                                console.error('Failed to load image:', e.target.src);
-                                                e.target.style.display = 'none';
-                                            }}
-                                        />
-                                    }
-                                >
-                                    <Card.Meta
-                                        title="Andryte"
-                                        description="A Discord bot that provides various utilities and fun commands for server members."
-                                    />
-                                    <div className="card-actions">
-                                        <Button
-                                            type="primary"
-                                            href="https://www.andryte.com"
-                                            target="_blank"
-                                        >
-                                            Visit Site
-                                        </Button>
-                                    </div>
-                                </Card>
-                            </motion.div>
-                        </Col>
-                        <Col xs={24} md={12} lg={6}>
-                            <motion.div variants={childVariants}>
-                                <Card
-                                    hoverable
-                                    cover={
-                                        <img
                                             alt="LiftLogic"
                                             src={liftlogiclogo}
-                                            style={{ padding: '20px', background: '#f5f5f5' }}
+                                            className="logo-background"
                                         />
                                     }
                                 >
@@ -245,7 +211,7 @@ const LandingPage = ({ darkMode, toggleDarkMode }) => {
                                         <img
                                             alt="Equine Logistics LLC"
                                             src={equinelogo}
-                                            style={{ padding: '20px', background: '#f5f5f5' }}
+                                            className="logo-background"
                                         />
                                     }
                                 >
@@ -257,34 +223,6 @@ const LandingPage = ({ darkMode, toggleDarkMode }) => {
                                         <Button
                                             type="primary"
                                             href="https://www.equinelogisticsllc.com"
-                                            target="_blank"
-                                        >
-                                            Visit Site
-                                        </Button>
-                                    </div>
-                                </Card>
-                            </motion.div>
-                        </Col>
-                        <Col xs={24} md={12} lg={6}>
-                            <motion.div variants={childVariants}>
-                                <Card
-                                    hoverable
-                                    cover={
-                                        <img
-                                            alt="Xclusive Labs"
-                                            src={xclusivelogo}
-                                            style={{ padding: '20px', background: '#f5f5f5' }}
-                                        />
-                                    }
-                                >
-                                    <Card.Meta
-                                        title="Xclusive Labs"
-                                        description="A website for a software development company specializing in custom solutions and digital experiences."
-                                    />
-                                    <div className="card-actions">
-                                        <Button
-                                            type="primary"
-                                            href="https://www.xclusivelabs.com"
                                             target="_blank"
                                         >
                                             Visit Site

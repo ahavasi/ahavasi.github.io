@@ -1,16 +1,51 @@
+/* Poppins Font Family */
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
 .page-container {
     overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* Hero Section */
 .hero-section {
     position: relative;
-    min-height: 100vh;
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
-    padding-top: 64px;
     overflow: hidden;
 }
 
@@ -99,6 +134,10 @@
 }
 
 /* Typography */
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
 .hero-section h1.ant-typography {
     font-size: 3.5rem;
     font-weight: 700;
@@ -106,12 +145,14 @@
     background: linear-gradient(90deg, #1890ff, #722ed1);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-family: 'Poppins', sans-serif;
 }
 
 .hero-section h2.ant-typography {
     color: #666;
     font-weight: 500;
     margin-bottom: 2rem;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* Content Sections */
@@ -167,6 +208,8 @@
     margin-bottom: 2rem;
     position: relative;
     display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
 }
 
 .section-content h2.ant-typography::after {
@@ -185,6 +228,8 @@
     line-height: 1.8;
     color: #4a4a4a;
     max-width: 900px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
 }
 
 .experience-item {
@@ -205,6 +250,8 @@
     color: #1890ff;
     margin-bottom: 0.5rem;
     font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
 }
 
 /* Social Links */
@@ -217,6 +264,8 @@
     height: 48px;
     padding: 0 24px;
     transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
 }
 
 .ant-btn:hover {
@@ -372,6 +421,8 @@
     padding: 0 2rem;
     font-size: 1.1rem;
     transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
 }
 
 .navigation-menu .ant-menu-item:hover {
@@ -459,6 +510,8 @@
 .projects-section .ant-card-meta-title {
     font-size: 1.25rem;
     margin-bottom: 0.75rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
 }
 
 .projects-section .ant-card-meta-description {
@@ -469,6 +522,8 @@
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
 }
 
 .card-actions {
@@ -484,6 +539,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
 }
 
 /* Hover effects */
@@ -528,4 +585,15 @@
 /* Dark mode adjustments */
 .dark .hero-background .ant-image-placeholder {
     background: #141414;
+}
+
+/* Logo background styles */
+.logo-background {
+    padding: 20px;
+    background: #ffffff;
+    transition: background-color 0.3s ease;
+}
+
+.dark .logo-background {
+    background: #d6d6d6;
 }
