@@ -79,7 +79,7 @@ const LandingPage = ({ darkMode, toggleDarkMode }) => {
                     <Col xs={24} md={12} className="hero-text">
                         <motion.div variants={childVariants}>
                             <Typography.Title level={1}>
-                                Hello, I'm Andre Havasi
+                                Hi! I'm Andre Havasi
                             </Typography.Title>
                             <Typography.Title level={2}>
                                 Software Engineer @ Jamf
