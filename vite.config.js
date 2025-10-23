@@ -12,7 +12,7 @@ export default defineConfig({
     }
   },
   build: {
-    assetsDir: '.',
+    assetsDir: 'assets',
     copyPublicDir: true
   }
 });

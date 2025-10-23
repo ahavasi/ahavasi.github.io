@@ -1,8 +1,25 @@
-# Ensure proper MIME types for JavaScript files
+# Enable rewrite engine
+RewriteEngine On
+
+# Handle client-side routing for React Router
+# If the requested file doesn't exist, serve index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
+
+# Set proper MIME types
 <IfModule mod_mime.c>
     AddType application/javascript .js
     AddType application/javascript .jsx
+    AddType application/javascript .mjs
     AddType text/css .css
+    AddType image/svg+xml .svg
+    AddType image/png .png
+    AddType image/jpeg .jpg
+    AddType image/jpeg .jpeg
+    AddType font/woff .woff
+    AddType font/woff2 .woff2
+    AddType font/ttf .ttf
 </IfModule>
 
 # Enable compression
@@ -26,6 +43,8 @@
     ExpiresByType image/png "access plus 1 year"
     ExpiresByType image/jpg "access plus 1 year"
     ExpiresByType image/jpeg "access plus 1 year"
-    ExpiresByType image/gif "access plus 1 year"
     ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType font/ttf "access plus 1 year"
 </IfModule>
