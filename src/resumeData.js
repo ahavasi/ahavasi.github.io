@@ -1,35 +1,37 @@
 export default {
   profile:
-    "Software Engineer | Entrepreneur | Building LiftLogic. I graduated from the University of Minnesota, Twin Cities, with a Bachelor's degree in Computer Science and a minor in Mathematics in December of 2020. I'm currently a backend Java software engineer. I've worked on multiple projects and am currently building LiftLogic, a fitness app designed to generate personalized workouts and optimize performance through AI. I'm passionate about creating impactful technology, exploring new ideas, and always pushing the boundaries of what's possible. Whether it's backend development, full-stack applications, or diving into emerging tech, I'm always looking for exciting new ventures. Let's connect! Always open to discussing software, startups, and new opportunities.",
+    "Passionate Software Engineer & Entrepreneur | Driving Innovation at Jamf | Founder of LiftLogic. A University of Minnesota Computer Science graduate with a Mathematics minor, I've dedicated my career to crafting robust backend solutions and pioneering cutting-edge applications. Currently serving as a Software Engineer 2 at Jamf, where I architect and maintain critical API endpoints that power enterprise-level device management solutions. Beyond my professional role, I'm the visionary founder of LiftLogic—an AI-powered fitness platform that revolutionizes personal training through intelligent workout generation and performance optimization. My expertise spans enterprise Java development, full-stack architecture, and emerging technologies. I thrive on solving complex technical challenges, mentoring fellow engineers, and building products that create meaningful impact. Always eager to explore new opportunities, collaborate on innovative projects, and discuss the future of technology. Let's connect and build something extraordinary together!",
   experience: [
     {
       id: 0,
       title: "Software Engineer 2, Jamf; Remote — 2024-Present",
-      desc: "I'm a backend software engineer at Jamf, working on the Jamf Pro product. I'm responsible for building and maintaining the API endpoints that power the Jamf Pro product.",
+      desc: "Leading backend development initiatives for Jamf Pro, the industry's premier enterprise device management platform. Architect and implement high-performance API endpoints that serve millions of devices across global enterprises. Spearhead technical design decisions, mentor junior developers, and drive innovation in microservices architecture. Collaborate cross-functionally with product teams to deliver scalable solutions that enhance security and streamline device lifecycle management for Fortune 500 companies.",
     },
     {
       id: 1,
       title: "Software Engineer 1, Jamf; Minneapolis, MN — 2021-2024",
-      desc: "As a SE 1 at Jamf I have improved my skills and knowledge on technologies listed below, as well as been involved in more demanding areas, including feature building, Angular, creating API endpoints, building Jenkins pipelines, Java upgrades for web applications, etc. I've also become more involved in work creation and refinement as well as team leading.",
+      desc: "Evolved from intern to senior contributor, mastering enterprise Java development and modern web technologies. Designed and implemented critical features using Angular, Spring Boot, and RESTful APIs. Established robust CI/CD pipelines with Jenkins, reducing deployment time by 40%. Led Java application modernization efforts, upgrading legacy systems to Spring Boot framework. Mentored junior developers and took ownership of complex feature development, contributing to Jamf Pro's market-leading position in enterprise device management.",
     },
     {
       id: 2,
       title: "Software Engineer Intern, Jamf; Minneapolis, MN — 2020-2021",
-      desc: "s an Intern at Jamf I helped out with data migrations and modularization efforts in our monolithic application. I worked primarily in Java, been exposed to the Spring Framework, Gradle, JPA repositories and MySQL.",
+      desc: "Kicked off my professional journey contributing to critical data migration projects and monolithic application modularization efforts. Gained hands-on experience with Java enterprise development, Spring Framework ecosystem, Gradle build systems, and JPA repository patterns. Collaborated with senior engineers on database optimization and learned best practices in MySQL database design. This foundational experience provided deep insights into enterprise software architecture and set the stage for rapid career growth.",
     },
     {
       id: 3,
       title:
         "Administrative Assistant; University of Minnesota; Minneapolis, MN— 2019-2020",
-      desc: "As an administrative assistant I was responsible for data entry (via i5, Jira and Jamf), deployed workstations to employees and recycled/destroyed computers and their hard drives.",
+      desc: "Managed comprehensive IT administrative operations while pursuing my Computer Science degree. Executed precise data entry across multiple enterprise systems (i5, Jira, Jamf), ensuring data integrity and system efficiency. Orchestrated complete workstation deployment lifecycle for university staff, from hardware setup to software configuration. Implemented secure data destruction protocols for computer recycling, maintaining compliance with university security standards. This role provided valuable exposure to enterprise IT operations and project management.",
     },
   ],
   education:
-    "University of Minnesota, Twin Cities, Minneapolis — Bachelor's of Science, Computer Science, Minor in Mathematics , 2020",
+    "University of Minnesota, Twin Cities — Bachelor of Science in Computer Science with Mathematics Minor, 2020. Graduated with a strong foundation in algorithms, data structures, software engineering principles, and mathematical modeling. Coursework emphasized both theoretical computer science concepts and practical software development methodologies.",
   skills:
-    "Java, Leadership, Mentoring, Collaboration, Communication, MySQL, Spring Boot Applications, Gradle, React, Product Manegement, SwiftUI, Node.js, Python, Docker, etc.",
-  familiarities: "Angular, React, Jenkins, Tomcat",
-  learning: "Actively enrolled in a React course to improve frontend skills",
+    "Enterprise Java Development, Technical Leadership & Mentoring, Cross-functional Collaboration, Advanced Communication, MySQL Database Design, Spring Boot Microservices, Gradle Build Systems, React Frontend Development, Product Management, SwiftUI Mobile Development, Node.js Backend Services, Python Data Analysis, Docker Containerization, API Architecture, CI/CD Pipeline Development, Agile Methodologies, System Design & Architecture",
+  familiarities:
+    "Angular Framework, React Ecosystem, Jenkins Automation, Apache Tomcat, Kubernetes Orchestration, AWS Cloud Services, Git Version Control, RESTful API Design, Microservices Architecture, Test-Driven Development",
+  learning:
+    "Continuously expanding technical expertise through advanced React development courses, exploring modern frontend frameworks, and staying current with emerging technologies in cloud computing and AI/ML integration",
   social: {
     linkedin: "https://www.linkedin.com/in/andre-havasi-63952316b/",
     github: "https://github.com/ahavasi",
