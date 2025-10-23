@@ -1,6 +1,7 @@
 # Ensure proper MIME types for JavaScript files
 /*.js
   Content-Type: application/javascript
+  Cache-Control: public, max-age=31536000
 
 /*.jsx
   Content-Type: application/javascript
@@ -10,12 +11,6 @@
 
 /*.css
   Content-Type: text/css
-
-# Cache static assets
-/*.js
-  Cache-Control: public, max-age=31536000
-
-/*.css
   Cache-Control: public, max-age=31536000
 
 /*.png
