@@ -1,26 +1,11 @@
 import { GithubOutlined, LinkedinOutlined, MailOutlined } from '@ant-design/icons';
-import { Button, Card, Col, Image, Row, Space, Typography } from 'antd';
+import { Button, Card, Col, Row, Space, Typography } from 'antd';
 import { motion } from 'framer-motion';
-import worthingtonImg from '../assets/locations/worthington.jpeg';
 import equinelogo from '../assets/logos/equine-logo.png';
 import liftlogiclogo from '../assets/logos/liftlogic-logo.png';
 import resumeData from '../resumeData';
 import './LandingPage.css';
 import Navigation from './Navigation';
-
-const locationImages = [
-    {
-        src: worthingtonImg,
-        alt: 'Worthington, MN',
-        title: 'Worthington, MN'
-    },
-    {
-        src: '/locations/twin-cities.jpg',
-        alt: 'Twin Cities',
-        title: 'Twin Cities'
-    },
-    // Add more images as needed
-];
 
 const LandingPage = ({ darkMode, toggleDarkMode }) => {
     const containerVariants = {
@@ -47,29 +32,11 @@ const LandingPage = ({ darkMode, toggleDarkMode }) => {
                 animate="visible"
                 variants={containerVariants}
             >
-                {/* Background Images */}
-                <div className="hero-background">
-                    {locationImages.map((image, index) => (
-                        <motion.div
-                            key={index}
-                            variants={childVariants}
-                            className="image-container"
-                        >
-                            <Image
-                                src={image.src}
-                                alt={image.alt}
-                                title={image.title}
-                                preview={false}
-                                placeholder={
-                                    <div style={{
-                                        background: darkMode ? '#141414' : '#f5f5f5',
-                                        height: '100%'
-                                    }} />
-                                }
-                            />
-                        </motion.div>
-                    ))}
-                </div>
+                {/* Background Image */}
+                <div
+                    className="hero-background"
+                    style={{ backgroundImage: 'url(/background.jpg)' }}
+                />
 
                 {/* Overlay */}
                 <div className="background-overlay"></div>
@@ -82,7 +49,7 @@ const LandingPage = ({ darkMode, toggleDarkMode }) => {
                                 Hi! I'm Andre Havasi
                             </Typography.Title>
                             <Typography.Title level={2}>
-                                Software Engineer @ Jamf
+                                Software Engineer
                             </Typography.Title>
                             <Space size="middle" className="social-links">
                                 <Button
@@ -117,7 +84,7 @@ const LandingPage = ({ darkMode, toggleDarkMode }) => {
                     <Col xs={24} md={12} className="hero-image">
                         <motion.div variants={childVariants}>
                             <img
-                                src={"https://media.licdn.com/dms/image/v2/D5603AQFmkY928-Kddw/profile-displayphoto-scale_400_400/B56ZoR2y1nHIAg-/0/1761236168625?e=1762992000&v=beta&t=zV1-T9QkA0eVzJ0jq3tgRtifQV8SEHJ_mfEp5XQHyDA"}
+                                src="/andrehavasi.jpg"
                                 alt="Andre Havasi"
                                 className="profile-image"
                             />
@@ -175,22 +142,25 @@ const LandingPage = ({ darkMode, toggleDarkMode }) => {
                 <motion.div variants={childVariants} className="section-content">
                     <Typography.Title level={2}>Projects</Typography.Title>
                     <Row gutter={[32, 32]}>
-                        <Col xs={24} md={12} lg={6}>
+                        <Col xs={24} md={12}>
                             <motion.div variants={childVariants}>
-                                <Card
-                                    hoverable
-                                    cover={
+                                <Card hoverable className="project-card">
+                                    <div className="project-card-header">
                                         <img
                                             alt="LiftLogic"
                                             src={liftlogiclogo}
-                                            className="logo-background"
+                                            className="project-logo"
                                         />
-                                    }
-                                >
-                                    <Card.Meta
-                                        title="LiftLogic"
-                                        description="A fitness tracking application that helps users log and analyze their workouts."
-                                    />
+                                        <div>
+                                            <Typography.Title level={4}>LiftLogic</Typography.Title>
+                                            <Typography.Text type="secondary">iOS Fitness Application</Typography.Text>
+                                        </div>
+                                    </div>
+                                    <ul className="project-details">
+                                        <li>Built an AI-assisted fitness platform with SwiftUI and Firebase backend, integrating Apple Watch verification and analytics dashboards</li>
+                                        <li>Architected backend services for workout data logging, performance metrics, and dynamic exercise updates</li>
+                                        <li>Managed end-to-end product development, UI/UX, and user growth strategy</li>
+                                    </ul>
                                     <div className="card-actions">
                                         <Button
                                             type="primary"
@@ -203,22 +173,24 @@ const LandingPage = ({ darkMode, toggleDarkMode }) => {
                                 </Card>
                             </motion.div>
                         </Col>
-                        <Col xs={24} md={12} lg={6}>
+                        <Col xs={24} md={12}>
                             <motion.div variants={childVariants}>
-                                <Card
-                                    hoverable
-                                    cover={
+                                <Card hoverable className="project-card">
+                                    <div className="project-card-header">
                                         <img
                                             alt="Equine Logistics LLC"
                                             src={equinelogo}
-                                            className="logo-background"
+                                            className="project-logo"
                                         />
-                                    }
-                                >
-                                    <Card.Meta
-                                        title="Equine Logistics LLC"
-                                        description="A website for a horse transportation company showcasing their services and facilitating customer inquiries."
-                                    />
+                                        <div>
+                                            <Typography.Title level={4}>Equine Logistics LLC</Typography.Title>
+                                            <Typography.Text type="secondary">Company Web Platform</Typography.Text>
+                                        </div>
+                                    </div>
+                                    <ul className="project-details">
+                                        <li>Developed and maintain company web systems, including scheduling, data tracking, and client management tools</li>
+                                        <li>Improved operational efficiency through dynamic interfaces and automated workflows</li>
+                                    </ul>
                                     <div className="card-actions">
                                         <Button
                                             type="primary"
