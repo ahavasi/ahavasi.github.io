@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <style>
+      .person-fill { fill: #1890ff; }
+      .person-stroke { fill: none; stroke: #1890ff; stroke-width: 1; }
+    </style>
+  </defs>
+  <!-- Person silhouette -->
+  <circle cx="16" cy="10" r="6" class="person-fill"/>
+  <path d="M6 28c0-5.5 4.5-10 10-10s10 4.5 10 10" class="person-fill"/>
+</svg>
