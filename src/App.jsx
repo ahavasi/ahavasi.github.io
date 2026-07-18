@@ -1,8 +1,13 @@
+import Nav from "./components/Nav";
+
 export default function App() {
   return (
-    <main>
-      {/* sections added in later tasks */}
-      <section id="hero" className="section">Hero</section>
-    </main>
+    <>
+      <Nav />
+      <main>
+        {/* sections added in later tasks */}
+        <section id="hero" className="section">Hero</section>
+      </main>
+    </>
   );
 }
