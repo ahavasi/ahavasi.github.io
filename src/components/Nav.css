@@ -11,7 +11,7 @@
 }
 
 .nav.scrolled {
-  background: rgba(10, 10, 15, 0.72);
+  background: color-mix(in srgb, var(--bg) 72%, transparent);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom-color: var(--border);
@@ -76,14 +76,14 @@
   font-size: 0.9rem;
   color: var(--text);
   background: var(--gradient-brand);
-  box-shadow: 0 8px 24px -12px rgba(124, 77, 255, 0.6);
+  box-shadow: 0 8px 24px -12px color-mix(in srgb, var(--accent) 60%, transparent);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .nav-cta:hover,
 .nav-cta:focus-visible {
   transform: translateY(-1px);
-  box-shadow: 0 12px 28px -12px rgba(124, 77, 255, 0.75);
+  box-shadow: 0 12px 28px -12px color-mix(in srgb, var(--accent) 75%, transparent);
 }
 
 .nav-toggle {
@@ -118,7 +118,7 @@
     position: fixed;
     inset: 0;
     top: 0;
-    background: rgba(10, 10, 15, 0.85);
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     z-index: 99;
