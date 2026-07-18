@@ -1,0 +1,68 @@
+.skills {
+  position: relative;
+}
+
+.skills-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Groups ---------- */
+.skills-groups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+}
+
+.skills-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.skills-group-label {
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ---------- Chips ---------- */
+.skills-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.skills-chip {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 60%, transparent);
+  backdrop-filter: blur(8px);
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.skills-chip:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--accent) 60%, transparent);
+  background: color-mix(in srgb, var(--surface-2) 70%, transparent);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 480px) {
+  .skills-groups {
+    gap: var(--sp-4);
+  }
+  .skills-chip {
+    font-size: 0.85rem;
+    padding: 0.45rem 0.85rem;
+  }
+}

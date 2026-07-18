@@ -1,0 +1,112 @@
+.services {
+  position: relative;
+}
+
+.services-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.services-intro {
+  color: var(--text-dim);
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  max-width: 56ch;
+  margin-top: calc(-1 * var(--sp-3));
+  margin-bottom: var(--sp-6);
+}
+
+/* ---------- Grid ---------- */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+}
+
+.service-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  padding: var(--sp-5);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--accent) 50%, transparent);
+  box-shadow: var(--shadow), 0 0 60px -24px color-mix(in srgb, var(--accent) 60%, transparent);
+}
+
+.service-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-sm);
+  background: var(--gradient-brand);
+  color: #fff;
+  box-shadow: var(--shadow-glow);
+}
+
+.service-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.service-desc {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ---------- CTA ---------- */
+.services-cta-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--sp-6);
+}
+
+.services-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  padding: 0.85rem 1.8rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  background: var(--gradient-brand);
+  box-shadow: var(--shadow-glow);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.services-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 90px -10px color-mix(in srgb, var(--accent) 70%, transparent);
+}
+
+.services-cta:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-intro {
+    max-width: 100%;
+  }
+}
