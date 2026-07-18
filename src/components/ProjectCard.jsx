@@ -7,6 +7,9 @@ import drivway from "../assets/logos/drivway-logo.png";
 import cardstock from "../assets/logos/cardstock-logo.png";
 import simpleselfbudget from "../assets/logos/simpleselfbudget-logo.png";
 import valzcorner from "../assets/logos/valzcorner-logo.png";
+import liftlogicCover from "../assets/covers/liftlogic-cover.png";
+import bodytreeCover from "../assets/covers/bodytree-cover.png";
+import simpleselfbudgetCover from "../assets/covers/simpleselfbudget-cover.png";
 import "./ProjectCard.css";
 
 const LOGOS = {
@@ -17,6 +20,12 @@ const LOGOS = {
   cardstock,
   simpleselfbudget,
   valzcorner,
+};
+
+const COVERS = {
+  liftlogic: liftlogicCover,
+  bodytree: bodytreeCover,
+  simpleselfbudget: simpleselfbudgetCover,
 };
 
 const ROLE_CLASS = {
@@ -30,11 +39,6 @@ const LINK_LABELS = {
   appStore: "App Store",
 };
 
-const item = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
-
 const getInitials = (name) => {
   const words = name.trim().split(/\s+/).filter(Boolean);
   if (words.length === 0) return "?";
@@ -42,23 +46,68 @@ const getInitials = (name) => {
   return (words[0].charAt(0) + words[1].charAt(0)).toUpperCase();
 };
 
-export default function ProjectCard({ project }) {
-  const { id, name, logoKey, role, pitch, tags = [], bullets = [], links = {} } =
-    project;
+export default function ProjectCard({ project, index = 0 }) {
+  const {
+    id,
+    name,
+    logoKey,
+    role,
+    pitch,
+    tags = [],
+    bullets = [],
+    links = {},
+  } = project;
   const logoSrc = LOGOS[logoKey];
+  const coverSrc = COVERS[logoKey];
   const linkEntries = Object.entries(links).filter(([, href]) => Boolean(href));
 
   return (
-    <motion.article className="project-card" variants={item}>
-      <div className="project-card-header">
-        {logoSrc ? (
-          <img className="project-logo" src={logoSrc} alt={name} loading="lazy" />
+    <motion.article
+      className="project-card"
+      layout
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -8 }}
+      transition={{
+        duration: 0.4,
+        ease: "easeOut",
+        delay: Math.min(index, 6) * 0.05,
+      }}
+    >
+      <div className={`project-cover${coverSrc ? "" : " project-cover--brand"}`}>
+        {coverSrc ? (
+          <>
+            <img
+              className="project-cover-img"
+              src={coverSrc}
+              alt={`${name} screenshot`}
+              loading="lazy"
+            />
+            {logoSrc && (
+              <img
+                className="project-cover-badge"
+                src={logoSrc}
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+              />
+            )}
+          </>
+        ) : logoSrc ? (
+          <img
+            className="project-cover-brand-logo"
+            src={logoSrc}
+            alt={name}
+            loading="lazy"
+          />
         ) : (
           <div className="project-monogram" aria-hidden="true">
             {getInitials(name)}
           </div>
         )}
+      </div>
 
+      <div className="project-body">
         <div className="project-heading">
           <h3 className="project-name">{name}</h3>
           <span
@@ -67,44 +116,44 @@ export default function ProjectCard({ project }) {
             {role}
           </span>
         </div>
+
+        <p className="project-pitch">{pitch}</p>
+
+        {tags.length > 0 && (
+          <ul className="project-tags">
+            {tags.map((tag) => (
+              <li className="project-tag" key={tag}>
+                {tag}
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {bullets.length > 0 && (
+          <ul className="project-bullets">
+            {bullets.map((bullet, i) => (
+              <li key={`${id}-${i}`}>{bullet}</li>
+            ))}
+          </ul>
+        )}
+
+        {linkEntries.length > 0 && (
+          <div className="project-links">
+            {linkEntries.map(([key, href]) => (
+              <a
+                key={key}
+                className="project-link"
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {LINK_LABELS[key] || key}
+                <ExternalLink size={15} aria-hidden="true" />
+              </a>
+            ))}
+          </div>
+        )}
       </div>
-
-      <p className="project-pitch">{pitch}</p>
-
-      {tags.length > 0 && (
-        <ul className="project-tags">
-          {tags.map((tag) => (
-            <li className="project-tag" key={tag}>
-              {tag}
-            </li>
-          ))}
-        </ul>
-      )}
-
-      {bullets.length > 0 && (
-        <ul className="project-bullets">
-          {bullets.map((bullet, i) => (
-            <li key={`${id}-${i}`}>{bullet}</li>
-          ))}
-        </ul>
-      )}
-
-      {linkEntries.length > 0 && (
-        <div className="project-links">
-          {linkEntries.map(([key, href]) => (
-            <a
-              key={key}
-              className="project-link"
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {LINK_LABELS[key] || key}
-              <ExternalLink size={15} aria-hidden="true" />
-            </a>
-          ))}
-        </div>
-      )}
     </motion.article>
   );
 }

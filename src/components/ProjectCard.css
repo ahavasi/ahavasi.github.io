@@ -2,8 +2,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: var(--sp-3);
-  padding: var(--sp-5);
+  overflow: hidden;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -17,44 +16,94 @@
     0 0 60px -24px color-mix(in srgb, var(--accent) 60%, transparent);
 }
 
-/* ---------- Header ---------- */
-.project-card-header {
+/* ---------- Cover ---------- */
+.project-cover {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
   display: flex;
   align-items: center;
-  gap: var(--sp-3);
+  justify-content: center;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
 }
 
-.project-logo {
-  width: 52px;
-  height: 52px;
+.project-cover-img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border-radius: var(--radius-sm);
+  object-position: top center;
+  display: block;
+}
+
+.project-cover--brand {
+  background:
+    radial-gradient(
+      120% 120% at 25% 15%,
+      color-mix(in srgb, var(--accent) 45%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      120% 120% at 85% 95%,
+      color-mix(in srgb, var(--accent-2) 42%, transparent),
+      transparent 55%
+    ),
+    var(--surface-2);
+}
+
+.project-cover-brand-logo {
+  width: auto;
+  height: 46%;
+  max-width: 56%;
+  object-fit: contain;
+  border-radius: 20px;
+  filter: drop-shadow(0 10px 26px color-mix(in srgb, var(--bg) 70%, transparent));
+}
+
+.project-cover-badge {
+  position: absolute;
+  left: var(--sp-3);
+  bottom: var(--sp-3);
+  width: 46px;
+  height: 46px;
+  object-fit: cover;
+  border-radius: 12px;
   border: 1px solid var(--border);
-  background: var(--surface-2);
-  flex-shrink: 0;
+  background: var(--surface);
+  padding: 3px;
+  box-shadow: var(--shadow);
 }
 
 .project-monogram {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 52px;
-  height: 52px;
-  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
   border-radius: var(--radius-sm);
   background: var(--gradient-brand);
   color: #fff;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   letter-spacing: 0.02em;
   box-shadow: var(--shadow-glow);
 }
 
-.project-heading {
+/* ---------- Body ---------- */
+.project-body {
   display: flex;
   flex-direction: column;
-  gap: var(--sp-1);
+  gap: var(--sp-3);
+  padding: var(--sp-5);
+  flex: 1;
+}
+
+.project-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sp-3);
   min-width: 0;
 }
 
