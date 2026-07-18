@@ -127,6 +127,19 @@ export default {
       ],
       links: { site: "https://www.equinelogisticsllc.com" },
     },
+    {
+      id: 6,
+      name: "Valz Corner",
+      logoKey: "valzcorner",
+      role: "Contract",
+      pitch: "A ground-up redesign of an oil painter's portfolio & shop.",
+      tags: ["Web Design", "UI/UX", "Frontend", "E-commerce"],
+      bullets: [
+        "Redesigning the portfolio and store for artist Val Chan — a gallery-first experience that puts the paintings front and center.",
+        "Modernizing layout, navigation, and storefront while preserving the minimal, art-forward aesthetic.",
+      ],
+      links: { site: "https://www.valzcorner.com" },
+    },
   ],
   experience: [
     {
