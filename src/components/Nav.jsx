@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import resumeData from "../resumeData";
@@ -19,6 +19,8 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toggleRef = useRef(null);
+  const mobileMenuRef = useRef(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -48,6 +50,29 @@ export default function Nav() {
   useEffect(() => {
     if (!isMobile) setIsMenuOpen(false);
   }, [isMobile]);
+
+  // Close the mobile menu on Escape while it's open.
+  useEffect(() => {
+    if (!isMenuOpen) return undefined;
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") setIsMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isMenuOpen]);
+
+  // Move focus into the menu when it opens, and restore it to the toggle
+  // button when it closes. Skip the initial mount so the toggle isn't
+  // focused before the user has interacted with it.
+  const hasOpenedRef = useRef(false);
+  useEffect(() => {
+    if (isMenuOpen) {
+      hasOpenedRef.current = true;
+      mobileMenuRef.current?.focus();
+    } else if (hasOpenedRef.current) {
+      toggleRef.current?.focus();
+    }
+  }, [isMenuOpen]);
 
   const handleNavClick = (id) => {
     scrollToId(id);
@@ -93,6 +118,7 @@ export default function Nav() {
           </button>
 
           <button
+            ref={toggleRef}
             type="button"
             className="nav-toggle"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -115,8 +141,10 @@ export default function Nav() {
             onClick={() => setIsMenuOpen(false)}
           >
             <motion.nav
+              ref={mobileMenuRef}
               className="nav-mobile-menu"
               aria-label="Mobile"
+              tabIndex={-1}
               initial={{ y: "-16px", opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: "-16px", opacity: 0 }}

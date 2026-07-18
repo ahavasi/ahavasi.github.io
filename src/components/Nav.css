@@ -39,6 +39,11 @@
   letter-spacing: -0.01em;
 }
 
+.nav-brand:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -94,6 +99,11 @@
   color: var(--text);
   padding: var(--sp-1);
   line-height: 0;
+}
+
+.nav-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 .nav-mobile-overlay {

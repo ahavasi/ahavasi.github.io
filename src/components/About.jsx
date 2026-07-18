@@ -37,8 +37,8 @@ export default function About() {
         whileInView="show"
         viewport={{ once: true, amount: 0.3 }}
       >
-        {about.map((paragraph, i) => (
-          <motion.p key={i} variants={item}>
+        {about.map((paragraph) => (
+          <motion.p key={paragraph.slice(0, 24)} variants={item}>
             {paragraph}
           </motion.p>
         ))}

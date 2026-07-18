@@ -40,7 +40,15 @@ const item = {
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
-  const reduced = prefersReducedMotion();
+  const [reduced, setReduced] = useState(prefersReducedMotion);
+
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.matchMedia) return undefined;
+    const mql = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const onChange = (e) => setReduced(e.matches);
+    mql.addEventListener("change", onChange);
+    return () => mql.removeEventListener("change", onChange);
+  }, []);
 
   useEffect(() => {
     if (reduced || taglines.length <= 1) return undefined;

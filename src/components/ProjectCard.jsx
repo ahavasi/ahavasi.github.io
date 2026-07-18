@@ -30,7 +30,7 @@ const getInitials = (name) => {
 };
 
 export default function ProjectCard({ project }) {
-  const { name, logoKey, role, pitch, tags = [], bullets = [], links = {} } =
+  const { id, name, logoKey, role, pitch, tags = [], bullets = [], links = {} } =
     project;
   const logoSrc = LOGOS[logoKey];
   const linkEntries = Object.entries(links).filter(([, href]) => Boolean(href));
@@ -70,8 +70,8 @@ export default function ProjectCard({ project }) {
 
       {bullets.length > 0 && (
         <ul className="project-bullets">
-          {bullets.map((bullet) => (
-            <li key={bullet}>{bullet}</li>
+          {bullets.map((bullet, i) => (
+            <li key={`${id}-${i}`}>{bullet}</li>
           ))}
         </ul>
       )}
