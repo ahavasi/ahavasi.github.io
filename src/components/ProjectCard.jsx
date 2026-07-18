@@ -6,9 +6,18 @@ import bodytree from "../assets/logos/bodytree-logo.png";
 import drivway from "../assets/logos/drivway-logo.png";
 import cardstock from "../assets/logos/cardstock-logo.png";
 import simpleselfbudget from "../assets/logos/simpleselfbudget-logo.png";
+import valzcorner from "../assets/logos/valzcorner-logo.png";
 import "./ProjectCard.css";
 
-const LOGOS = { liftlogic, equine, bodytree, drivway, cardstock, simpleselfbudget };
+const LOGOS = {
+  liftlogic,
+  equine,
+  bodytree,
+  drivway,
+  cardstock,
+  simpleselfbudget,
+  valzcorner,
+};
 
 const ROLE_CLASS = {
   Founder: "role-badge--founder",
