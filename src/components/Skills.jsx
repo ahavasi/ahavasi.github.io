@@ -4,12 +4,6 @@ import "./Skills.css";
 
 const { skills } = resumeData;
 
-const GROUPS = [
-  { key: "languages", label: "Languages" },
-  { key: "frameworks", label: "Frameworks" },
-  { key: "tools", label: "Tools" },
-];
-
 const container = {
   hidden: { opacity: 0 },
   show: {
@@ -38,14 +32,13 @@ export default function Skills() {
         </motion.h2>
 
         <div className="skills-groups">
-          {GROUPS.map(({ key, label }) => {
-            const values = skills[key] ?? [];
-            if (!values.length) return null;
+          {skills.map(({ label, items = [] }) => {
+            if (!items.length) return null;
             return (
-              <motion.div className="skills-group" variants={item} key={key}>
+              <motion.div className="skills-group" variants={item} key={label}>
                 <span className="skills-group-label">{label}</span>
                 <div className="skills-chips">
-                  {values.map((value) => (
+                  {items.map((value) => (
                     <span className="skills-chip" key={value}>
                       {value}
                     </span>

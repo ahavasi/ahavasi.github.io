@@ -2,9 +2,13 @@ import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import liftlogic from "../assets/logos/liftlogic-logo.png";
 import equine from "../assets/logos/equine-logo.png";
+import bodytree from "../assets/logos/bodytree-logo.png";
+import drivway from "../assets/logos/drivway-logo.png";
+import cardstock from "../assets/logos/cardstock-logo.png";
+import simpleselfbudget from "../assets/logos/simpleselfbudget-logo.png";
 import "./ProjectCard.css";
 
-const LOGOS = { liftlogic, equine };
+const LOGOS = { liftlogic, equine, bodytree, drivway, cardstock, simpleselfbudget };
 
 const ROLE_CLASS = {
   Founder: "role-badge--founder",

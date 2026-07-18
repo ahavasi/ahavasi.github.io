@@ -30,9 +30,9 @@ data.projects.forEach((p) =>
 req(Array.isArray(data.services) && data.services.length === 3, "three services");
 
 req(
-  Array.isArray(data.skills?.languages) &&
-    Array.isArray(data.skills?.frameworks) &&
-    Array.isArray(data.skills?.tools),
+  Array.isArray(data.skills) &&
+    data.skills.length > 0 &&
+    data.skills.every((g) => g.label && Array.isArray(g.items) && g.items.length),
   "grouped skills",
 );
 

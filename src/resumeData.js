@@ -147,21 +147,47 @@ export default {
   ],
   education:
     "University of Minnesota, Twin Cities — Bachelor of Science in Computer Science, 2017-2020, Minneapolis, MN.",
-  skills: {
-    languages: ["Java", "SQL", "Swift / SwiftUI", "Python", "JavaScript", "TypeScript"],
-    frameworks: ["Spring Boot", "React", "Firebase", "MongoDB", "Node.js"],
-    tools: [
-      "Git",
-      "GitHub Actions",
-      "Jenkins",
-      "Prometheus",
-      "Grafana",
-      "Cloudflare",
-      "Claude Code",
-      "Copilot",
-      "Cursor",
-    ],
-  },
+  skills: [
+    {
+      label: "Languages",
+      items: ["Swift", "Kotlin", "Java", "TypeScript", "JavaScript", "Python", "SQL"],
+    },
+    {
+      label: "Apple / iOS",
+      items: ["SwiftUI", "SwiftData", "CloudKit", "WidgetKit", "watchOS", "Fastlane"],
+    },
+    {
+      label: "Web & Frontend",
+      items: ["React", "Vite", "Tailwind CSS", "React Router", "Framer Motion"],
+    },
+    {
+      label: "Backend & Data",
+      items: [
+        "Spring Boot",
+        "Node.js",
+        "Firebase",
+        "MongoDB",
+        "REST APIs",
+        "Event-driven messaging",
+      ],
+    },
+    {
+      label: "Cloud & DevOps",
+      items: [
+        "Cloudflare Workers",
+        "Cloudflare Pages",
+        "GitHub Actions",
+        "Jenkins",
+        "Docker",
+        "Prometheus",
+        "Grafana",
+      ],
+    },
+    {
+      label: "AI & Tooling",
+      items: ["MCP server development", "Claude Code", "GitHub Copilot", "Cursor", "Git"],
+    },
+  ],
   social: {
     linkedin: "https://www.linkedin.com/in/andre-havasi-63952316b/",
     github: "https://github.com/ahavasi",
