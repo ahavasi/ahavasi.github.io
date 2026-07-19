@@ -20,19 +20,34 @@ export default {
   ],
   services: [
     {
-      title: "Web Apps",
-      desc: "React + TypeScript web platforms, from marketing sites to full SaaS dashboards.",
+      title: "Websites",
+      desc: "Marketing sites, landing pages, and full web apps in React + TypeScript — from a fresh idea to a polished launch.",
       icon: "Globe",
     },
     {
-      title: "iOS Apps",
-      desc: "Native SwiftUI apps built and shipped to the App Store, with iCloud/CloudKit sync.",
+      title: "iOS & Mobile Apps",
+      desc: "Native SwiftUI apps that feel at home on your device, with iCloud/CloudKit sync built in.",
       icon: "Smartphone",
     },
     {
+      title: "Ship to the App Store",
+      desc: "I take your app the last mile — build, TestFlight, App Review, and release management, all the way to live.",
+      icon: "Rocket",
+    },
+    {
+      title: "AI Routines & Workflows",
+      desc: "Set up AI automations, agents, and workflows that save you hours — tailored to how you already work.",
+      icon: "Sparkles",
+    },
+    {
       title: "Backends & APIs",
-      desc: "Firebase, Cloud Functions, and Cloudflare Workers that scale — auth, data, and integrations.",
+      desc: "Firebase, Cloud Functions, and Cloudflare Workers that scale — auth, data, and the integrations behind your product.",
       icon: "Server",
+    },
+    {
+      title: "Consulting & Advice",
+      desc: "Architecture reviews, technical direction, and a second set of eyes to get your project unstuck.",
+      icon: "Compass",
     },
   ],
   projects: [

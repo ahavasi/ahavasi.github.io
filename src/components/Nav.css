@@ -79,7 +79,7 @@
   padding: var(--sp-2) var(--sp-4);
   font-weight: 600;
   font-size: 0.9rem;
-  color: var(--text);
+  color: #fff;
   background: var(--gradient-brand);
   box-shadow: 0 8px 24px -12px color-mix(in srgb, var(--accent) 60%, transparent);
   transition: transform 0.2s ease, box-shadow 0.2s ease;

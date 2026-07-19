@@ -130,15 +130,15 @@
 }
 
 .role-badge--founder {
-  color: var(--text);
+  color: #fff;
   background: var(--gradient-brand);
   border-color: transparent;
 }
 
 .role-badge--contract {
-  color: var(--accent-2);
-  background: color-mix(in srgb, var(--accent-2) 14%, transparent);
-  border-color: color-mix(in srgb, var(--accent-2) 40%, transparent);
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
 }
 
 .role-badge--personal {

@@ -1,9 +1,17 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Globe, Smartphone, Server } from "lucide-react";
+import {
+  ArrowRight,
+  Globe,
+  Smartphone,
+  Rocket,
+  Sparkles,
+  Server,
+  Compass,
+} from "lucide-react";
 import resumeData from "../resumeData";
 import "./Services.css";
 
-const ICONS = { Globe, Smartphone, Server };
+const ICONS = { Globe, Smartphone, Rocket, Sparkles, Server, Compass };
 
 const { services } = resumeData;
 
@@ -38,8 +46,8 @@ export default function Services() {
         </motion.h2>
 
         <motion.p className="services-intro" variants={item}>
-          I build web &amp; iOS apps for people — from idea to App Store or
-          the open web.
+          Have an idea? Here&apos;s how I can help bring it to life — a website,
+          an app, or automating the busywork behind the scenes.
         </motion.p>
 
         <div className="services-grid">

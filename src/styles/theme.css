@@ -1,17 +1,17 @@
 :root {
-  --bg: #0a0a0f;
-  --surface: #14141c;
-  --surface-2: #1c1c28;
-  --border: #2a2a3a;
-  --text: #f4f4f8;
-  --text-dim: #a0a0b4;
-  --accent: #7c4dff;      /* electric violet */
-  --accent-2: #3d7bff;    /* electric blue */
+  --bg: #ffffff;
+  --surface: #f7f8fa;     /* subtle raised panels/cards */
+  --surface-2: #eef1f6;   /* deeper raised / hover */
+  --border: #e4e7ef;      /* light hairline */
+  --text: #1a1a2e;        /* near-black ink */
+  --text-dim: #5b6076;    /* muted, ~6:1 on white */
+  --accent: #4f6bed;      /* muted indigo */
+  --accent-2: #6d8bff;    /* lighter indigo (gentle gradient stop) */
   --gradient-brand: linear-gradient(120deg, var(--accent), var(--accent-2));
   --radius: 16px;
   --radius-sm: 10px;
-  --shadow: 0 20px 60px -20px rgba(0,0,0,0.7);
-  --shadow-glow: 0 0 80px -20px color-mix(in srgb, var(--accent) 50%, transparent);
+  --shadow: 0 12px 32px -16px rgba(20, 24, 60, 0.14);
+  --shadow-glow: 0 8px 28px -12px color-mix(in srgb, var(--accent) 28%, transparent);
   --sp-1: 0.5rem; --sp-2: 0.75rem; --sp-3: 1rem; --sp-4: 1.5rem;
   --sp-5: 2rem; --sp-6: 3rem; --sp-7: 4.5rem; --sp-8: 7rem;
   --font-body: 'Poppins', system-ui, sans-serif;
@@ -31,6 +31,6 @@ body {
 }
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
-h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; font-weight: 700; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; font-weight: 600; }
 .section { max-width: var(--maxw); margin: 0 auto; padding: var(--sp-8) var(--sp-4); }
 .section-title { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: var(--sp-5); }

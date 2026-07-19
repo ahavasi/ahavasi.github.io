@@ -45,7 +45,7 @@
   font-weight: 700;
   font-size: clamp(2rem, 5vw, 2.75rem);
   line-height: 1.1;
-  background: var(--gradient-brand);
+  background: linear-gradient(120deg, #3f51c9, var(--accent));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
