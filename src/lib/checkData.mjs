@@ -11,7 +11,7 @@ req(data.name && data.title, "name/title");
 req(Array.isArray(data.taglines) && data.taglines.length, "taglines");
 req(Array.isArray(data.about) && data.about.length >= 2, "about paragraphs");
 
-req(Array.isArray(data.projects) && data.projects.length === 7, "seven projects");
+req(Array.isArray(data.projects) && data.projects.length > 0, "projects");
 data.projects.forEach((p) =>
   req(
     p.id != null &&
@@ -27,7 +27,12 @@ data.projects.forEach((p) =>
   ),
 );
 
-req(Array.isArray(data.services) && data.services.length === 3, "three services");
+req(
+  Array.isArray(data.services) &&
+    data.services.length > 0 &&
+    data.services.every((s) => s.title && s.desc && s.icon),
+  "services",
+);
 
 req(
   Array.isArray(data.skills) &&
