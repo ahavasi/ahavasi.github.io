@@ -10,7 +10,7 @@
 }
 
 .project-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(var(--lift-lg));
   border-color: color-mix(in srgb, var(--accent) 50%, transparent);
   box-shadow: var(--shadow),
     0 0 60px -24px color-mix(in srgb, var(--accent) 60%, transparent);
@@ -131,7 +131,7 @@
 
 .role-badge--founder {
   color: #fff;
-  background: var(--gradient-brand);
+  background: var(--accent);
   border-color: transparent;
 }
 
@@ -215,7 +215,7 @@
 }
 
 .project-link:hover {
-  transform: translateY(-2px);
+  transform: translateY(var(--lift));
   border-color: color-mix(in srgb, var(--accent) 60%, transparent);
   background: color-mix(in srgb, var(--accent) 12%, transparent);
   color: var(--accent);

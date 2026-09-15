@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Mail } from "lucide-react";
 import resumeData from "../resumeData";
@@ -22,9 +22,6 @@ const prefersReducedMotion = () =>
   typeof window !== "undefined" &&
   window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
 
-const scrollToId = (id) =>
-  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-
 const container = {
   hidden: { opacity: 0 },
   show: {
@@ -41,6 +38,8 @@ const item = {
 export default function Hero() {
   const [index, setIndex] = useState(0);
   const [reduced, setReduced] = useState(prefersReducedMotion);
+  const [inView, setInView] = useState(true);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
     if (typeof window === "undefined" || !window.matchMedia) return undefined;
@@ -50,16 +49,29 @@ export default function Hero() {
     return () => mql.removeEventListener("change", onChange);
   }, []);
 
+  // The hero's looping decoration and the tagline rotator both cost frames for
+  // as long as they run, so neither runs while the hero is off-screen.
   useEffect(() => {
-    if (reduced || taglines.length <= 1) return undefined;
+    const el = sectionRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") return undefined;
+    const observer = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0 },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (reduced || !inView || taglines.length <= 1) return undefined;
     const id = window.setInterval(() => {
       setIndex((prev) => (prev + 1) % taglines.length);
     }, 2500);
     return () => window.clearInterval(id);
-  }, [reduced]);
+  }, [reduced, inView]);
 
   return (
-    <section id="hero" className="hero">
+    <section id="hero" className={`hero${inView ? "" : " is-idle"}`} ref={sectionRef}>
       <div className="hero-bg" aria-hidden="true">
         <span className="hero-glow hero-glow--violet" />
         <span className="hero-glow hero-glow--blue" />
@@ -86,7 +98,7 @@ export default function Hero() {
             {heroHeadline}
           </motion.p>
 
-          <motion.div className="hero-tagline" variants={item} aria-live="polite">
+          <motion.div className="hero-tagline" variants={item}>
             <span className="hero-tagline-label">Currently:</span>
             {reduced ? (
               <span className="hero-tagline-text">{taglines.join(" · ")}</span>
@@ -107,21 +119,13 @@ export default function Hero() {
           </motion.div>
 
           <motion.div className="hero-cta" variants={item}>
-            <button
-              type="button"
-              className="hero-btn hero-btn--primary"
-              onClick={() => scrollToId("contact")}
-            >
+            <a className="hero-btn hero-btn--primary" href="#contact">
               Hire Me
               <ArrowRight size={18} aria-hidden="true" />
-            </button>
-            <button
-              type="button"
-              className="hero-btn hero-btn--ghost"
-              onClick={() => scrollToId("work")}
-            >
+            </a>
+            <a className="hero-btn hero-btn--ghost" href="#work">
               View Work
-            </button>
+            </a>
           </motion.div>
 
           <motion.div className="hero-social" variants={item}>
@@ -160,15 +164,10 @@ export default function Hero() {
         </motion.div>
       </motion.div>
 
-      <button
-        type="button"
-        className="hero-scroll"
-        onClick={() => scrollToId("about")}
-        aria-label="Scroll to about section"
-      >
+      <a className="hero-scroll" href="#about" aria-label="Skip to the about section">
         <span className="hero-scroll-line" aria-hidden="true" />
         Scroll
-      </button>
+      </a>
     </section>
   );
 }

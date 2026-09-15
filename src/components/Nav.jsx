@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import resumeData from "../resumeData";
@@ -11,13 +11,10 @@ const NAV_LINKS = [
   { id: "skills", label: "Skills" },
 ];
 
-const scrollToId = (id) => {
-  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-};
+const FOCUSABLE = 'a[href], button:not([disabled])';
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleRef = useRef(null);
   const mobileMenuRef = useRef(null);
@@ -30,40 +27,48 @@ export default function Nav() {
   }, []);
 
   useEffect(() => {
-    const checkIsMobile = () => setIsMobile(window.innerWidth <= 768);
-    checkIsMobile();
-    window.addEventListener("resize", checkIsMobile);
-    return () => window.removeEventListener("resize", checkIsMobile);
-  }, []);
-
-  useEffect(() => {
-    if (isMenuOpen) {
-      document.body.classList.add("mobile-menu-open");
-    } else {
-      document.body.classList.remove("mobile-menu-open");
-    }
+    if (!isMenuOpen) return undefined;
+    document.body.classList.add("mobile-menu-open");
     return () => document.body.classList.remove("mobile-menu-open");
   }, [isMenuOpen]);
 
-  // Close the mobile menu automatically if the viewport grows past the
-  // mobile breakpoint while it's open.
+  // Close the mobile menu if the viewport grows past the breakpoint that hides
+  // the toggle, so focus is never stranded in a menu no one can dismiss.
   useEffect(() => {
-    if (!isMobile) setIsMenuOpen(false);
-  }, [isMobile]);
+    const mql = window.matchMedia("(min-width: 769px)");
+    const onChange = (e) => e.matches && setIsMenuOpen(false);
+    mql.addEventListener("change", onChange);
+    return () => mql.removeEventListener("change", onChange);
+  }, []);
 
-  // Close the mobile menu on Escape while it's open.
+  // Escape closes; Tab cycles inside the menu while it covers the page.
   useEffect(() => {
     if (!isMenuOpen) return undefined;
     const onKeyDown = (e) => {
-      if (e.key === "Escape") setIsMenuOpen(false);
+      if (e.key === "Escape") {
+        setIsMenuOpen(false);
+        return;
+      }
+      if (e.key !== "Tab") return;
+      const nodes = mobileMenuRef.current?.querySelectorAll(FOCUSABLE);
+      if (!nodes?.length) return;
+      const first = nodes[0];
+      const last = nodes[nodes.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [isMenuOpen]);
 
-  // Move focus into the menu when it opens, and restore it to the toggle
-  // button when it closes. Skip the initial mount so the toggle isn't
-  // focused before the user has interacted with it.
+  // Move focus into the menu when it opens, and restore it to the toggle when
+  // it closes. Skip the initial mount so the toggle isn't focused before the
+  // user has interacted with it.
   const hasOpenedRef = useRef(false);
   useEffect(() => {
     if (isMenuOpen) {
@@ -74,10 +79,7 @@ export default function Nav() {
     }
   }, [isMenuOpen]);
 
-  const handleNavClick = (id) => {
-    scrollToId(id);
-    setIsMenuOpen(false);
-  };
+  const closeMenu = useCallback(() => setIsMenuOpen(false), []);
 
   return (
     <motion.header
@@ -87,35 +89,22 @@ export default function Nav() {
       transition={{ duration: 0.5 }}
     >
       <div className="nav-inner">
-        <button
-          type="button"
-          className="nav-brand"
-          onClick={() => handleNavClick("hero")}
-        >
+        <a className="nav-brand" href="#hero">
           {resumeData.name}
-        </button>
+        </a>
 
         <nav className="nav-links" aria-label="Primary">
           {NAV_LINKS.map((link) => (
-            <button
-              key={link.id}
-              type="button"
-              className="nav-link"
-              onClick={() => handleNavClick(link.id)}
-            >
+            <a key={link.id} className="nav-link" href={`#${link.id}`}>
               {link.label}
-            </button>
+            </a>
           ))}
         </nav>
 
         <div className="nav-actions">
-          <button
-            type="button"
-            className="nav-cta"
-            onClick={() => handleNavClick("contact")}
-          >
+          <a className="nav-cta" href="#contact">
             Hire Me
-          </button>
+          </a>
 
           <button
             ref={toggleRef}
@@ -138,7 +127,7 @@ export default function Nav() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            onClick={() => setIsMenuOpen(false)}
+            onClick={closeMenu}
           >
             <motion.nav
               ref={mobileMenuRef}
@@ -152,22 +141,22 @@ export default function Nav() {
               onClick={(e) => e.stopPropagation()}
             >
               {NAV_LINKS.map((link) => (
-                <button
+                <a
                   key={link.id}
-                  type="button"
                   className="nav-mobile-link"
-                  onClick={() => handleNavClick(link.id)}
+                  href={`#${link.id}`}
+                  onClick={closeMenu}
                 >
                   {link.label}
-                </button>
+                </a>
               ))}
-              <button
-                type="button"
+              <a
                 className="nav-cta nav-cta-mobile"
-                onClick={() => handleNavClick("contact")}
+                href="#contact"
+                onClick={closeMenu}
               >
                 Hire Me
-              </button>
+              </a>
             </motion.nav>
           </motion.div>
         )}

@@ -1,3 +1,4 @@
+import { MotionConfig } from "framer-motion";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
@@ -9,9 +10,12 @@ import Contact from "./components/Contact";
 
 export default function App() {
   return (
-    <>
+    <MotionConfig reducedMotion="user">
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
       <Nav />
-      <main>
+      <main id="main">
         <Hero />
         <Services />
         <About />
@@ -20,6 +24,6 @@ export default function App() {
         <Skills />
         <Contact />
       </main>
-    </>
+    </MotionConfig>
   );
 }

@@ -23,4 +23,7 @@ dist/
 # superpowers subagent-driven-development scratch
 .superpowers/
 
+# playwright-mcp session artifacts
+.playwright-mcp/
+
 # End of https://www.toptal.com/developers/gitignore/api/react

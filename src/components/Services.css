@@ -36,7 +36,7 @@
 }
 
 .service-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(var(--lift-lg));
   border-color: color-mix(in srgb, var(--accent) 50%, transparent);
   box-shadow: var(--shadow), 0 0 60px -24px color-mix(in srgb, var(--accent) 60%, transparent);
 }
@@ -84,14 +84,14 @@
   padding: 0.85rem 1.8rem;
   border-radius: var(--radius-sm);
   border: 1px solid transparent;
-  background: var(--gradient-brand);
+  background: var(--accent);
   box-shadow: var(--shadow-glow);
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .services-cta:hover {
-  transform: translateY(-2px);
+  transform: translateY(var(--lift));
   box-shadow: 0 0 90px -10px color-mix(in srgb, var(--accent) 70%, transparent);
 }
 

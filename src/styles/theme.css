@@ -4,9 +4,10 @@
   --surface-2: #eef1f6;   /* deeper raised / hover */
   --border: #e4e7ef;      /* light hairline */
   --text: #1a1a2e;        /* near-black ink */
-  --text-dim: #5b6076;    /* muted, ~6:1 on white */
-  --accent: #4f6bed;      /* muted indigo */
-  --accent-2: #6d8bff;    /* lighter indigo (gentle gradient stop) */
+  --text-dim: #5b6076;    /* muted, 6.2:1 on white */
+  --accent: #4356d6;      /* indigo; 5.9:1 both as ink on white and under white text */
+  --accent-deep: #3f51c9; /* darker stop for display gradients */
+  --accent-2: #6d8bff;    /* light indigo — decorative surfaces only, never under text */
   --gradient-brand: linear-gradient(120deg, var(--accent), var(--accent-2));
   --radius: 16px;
   --radius-sm: 10px;
@@ -14,16 +15,25 @@
   --shadow-glow: 0 8px 28px -12px color-mix(in srgb, var(--accent) 28%, transparent);
   --sp-1: 0.5rem; --sp-2: 0.75rem; --sp-3: 1rem; --sp-4: 1.5rem;
   --sp-5: 2rem; --sp-6: 3rem; --sp-7: 4.5rem; --sp-8: 7rem;
+  --lift: -2px;
+  --lift-lg: -6px;
   --font-body: 'Poppins', system-ui, sans-serif;
-  --font-display: 'Poppins', system-ui, sans-serif; /* upgraded in Step 3 */
+  --font-display: 'Poppins', system-ui, sans-serif;
   --maxw: 1120px;
+  --nav-h: 4.25rem;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
+
+/* Motion preference: neutralise hover displacement and jump-cut scrolling, but
+   leave transition timing intact so state changes stay legible. Looping
+   decoration is stopped at its own source in Hero.css; JS motion is handled by
+   MotionConfig in App.jsx. */
 @media (prefers-reduced-motion: reduce) {
+  :root { --lift: 0px; --lift-lg: 0px; }
   html { scroll-behavior: auto; }
-  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
 }
+
 body {
   background: var(--bg); color: var(--text);
   font-family: var(--font-body); line-height: 1.6;
@@ -34,3 +44,27 @@ img { max-width: 100%; display: block; }
 h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; font-weight: 600; }
 .section { max-width: var(--maxw); margin: 0 auto; padding: var(--sp-8) var(--sp-4); }
 .section-title { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: var(--sp-5); }
+
+/* Anchor navigation clears the fixed header. */
+[id] { scroll-margin-top: calc(var(--nav-h) + var(--sp-3)); }
+
+::selection { background: color-mix(in srgb, var(--accent) 22%, transparent); color: var(--text); }
+
+.skip-link {
+  position: absolute;
+  left: var(--sp-3);
+  top: var(--sp-3);
+  z-index: 200;
+  transform: translateY(-200%);
+  padding: var(--sp-2) var(--sp-4);
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+}

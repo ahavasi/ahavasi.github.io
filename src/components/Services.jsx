@@ -28,9 +28,6 @@ const item = {
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-const scrollToId = (id) =>
-  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-
 export default function Services() {
   return (
     <section id="services" className="section services">
@@ -66,14 +63,10 @@ export default function Services() {
         </div>
 
         <motion.div className="services-cta-wrap" variants={item}>
-          <button
-            type="button"
-            className="services-cta"
-            onClick={() => scrollToId("contact")}
-          >
+          <a className="services-cta" href="#contact">
             Start a project
             <ArrowRight size={18} aria-hidden="true" />
-          </button>
+          </a>
         </motion.div>
       </motion.div>
     </section>

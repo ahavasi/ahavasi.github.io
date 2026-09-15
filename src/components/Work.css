@@ -41,14 +41,14 @@
 }
 
 .work-filter:hover {
-  transform: translateY(-2px);
+  transform: translateY(var(--lift));
   color: var(--text);
   border-color: color-mix(in srgb, var(--accent) 50%, transparent);
 }
 
 .work-filter.is-active {
   color: #fff;
-  background: var(--gradient-brand);
+  background: var(--accent);
   border-color: transparent;
   box-shadow: 0 8px 24px -12px color-mix(in srgb, var(--accent) 70%, transparent);
 }

@@ -26,6 +26,9 @@
   border-radius: 50%;
   filter: blur(90px);
   opacity: 0.16;
+}
+
+.hero:not(.is-idle) .hero-glow {
   will-change: transform;
 }
 
@@ -137,7 +140,7 @@
   font-size: clamp(2.75rem, 9vw, 6rem);
   line-height: 1.02;
   letter-spacing: -0.02em;
-  background: linear-gradient(120deg, #3f51c9, var(--accent));
+  background: linear-gradient(120deg, var(--accent-deep), var(--accent));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -173,7 +176,7 @@
   display: inline-block;
   font-weight: 600;
   color: transparent;
-  background: linear-gradient(120deg, #3f51c9, var(--accent));
+  background: linear-gradient(120deg, var(--accent-deep), var(--accent));
   -webkit-background-clip: text;
   background-clip: text;
 }
@@ -203,12 +206,12 @@
 
 .hero-btn--primary {
   color: #fff;
-  background: var(--gradient-brand);
+  background: var(--accent);
   box-shadow: var(--shadow-glow);
 }
 
 .hero-btn--primary:hover {
-  transform: translateY(-2px);
+  transform: translateY(var(--lift));
   box-shadow: 0 0 90px -10px color-mix(in srgb, var(--accent) 70%, transparent);
 }
 
@@ -220,7 +223,7 @@
 }
 
 .hero-btn--ghost:hover {
-  transform: translateY(-2px);
+  transform: translateY(var(--lift));
   border-color: color-mix(in srgb, var(--accent) 60%, transparent);
   background: color-mix(in srgb, var(--surface-2) 70%, transparent);
 }
@@ -253,7 +256,7 @@
 .hero-social-link:hover {
   color: var(--text);
   border-color: color-mix(in srgb, var(--accent) 60%, transparent);
-  transform: translateY(-2px);
+  transform: translateY(var(--lift));
 }
 
 .hero-social-link:focus-visible {
@@ -380,8 +383,20 @@
   }
 }
 
+/* Nothing loops while the hero is scrolled past. */
+.hero.is-idle .hero-glow,
+.hero.is-idle .hero-status-dot,
+.hero.is-idle .hero-portrait-frame::before,
+.hero.is-idle .hero-scroll-line {
+  animation-play-state: paused;
+}
+
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
+  .hero:not(.is-idle) .hero-glow {
+    will-change: auto;
+  }
+
   .hero-glow--violet,
   .hero-glow--blue,
   .hero-status-dot,
