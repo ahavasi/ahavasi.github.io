@@ -96,7 +96,7 @@ export default function Work() {
         viewport={{ once: true, amount: 0.4 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
-        All 6 of my apps on the App Store
+        See all my apps on the App Store
         <ArrowUpRight size={16} aria-hidden="true" />
       </motion.a>
     </section>
