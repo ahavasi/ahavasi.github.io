@@ -4,8 +4,9 @@ import liftlogic from "../assets/logos/liftlogic-logo.webp";
 import eliteequine from "../assets/logos/eliteequine-logo.webp";
 import bodytree from "../assets/logos/bodytree-logo.webp";
 import drivway from "../assets/logos/drivway-logo.png";
-import cardstock from "../assets/logos/cardstock-logo.webp";
+import cardops from "../assets/logos/cardops-logo.webp";
 import simpleselfbudget from "../assets/logos/simpleselfbudget-logo.webp";
+import marquee from "../assets/logos/marquee-logo.webp";
 import valzcorner from "../assets/logos/valzcorner-logo.webp";
 import "./ProjectCard.css";
 
@@ -14,9 +15,10 @@ const LOGOS = {
   eliteequine,
   bodytree,
   drivway,
-  cardstock,
+  cardops,
   simpleselfbudget,
   valzcorner,
+  marquee,
 };
 
 const ROLE_CLASS = {
@@ -38,16 +40,7 @@ const getInitials = (name) => {
 };
 
 export default function ProjectCard({ project, index = 0 }) {
-  const {
-    id,
-    name,
-    logoKey,
-    role,
-    pitch,
-    tags = [],
-    bullets = [],
-    links = {},
-  } = project;
+  const { name, logoKey, role, pitch, tags = [], links = {} } = project;
   const logoSrc = LOGOS[logoKey];
   const linkEntries = Object.entries(links).filter(([, href]) => Boolean(href));
 
@@ -97,14 +90,6 @@ export default function ProjectCard({ project, index = 0 }) {
               <li className="project-tag" key={tag}>
                 {tag}
               </li>
-            ))}
-          </ul>
-        )}
-
-        {bullets.length > 0 && (
-          <ul className="project-bullets">
-            {bullets.map((bullet, i) => (
-              <li key={`${id}-${i}`}>{bullet}</li>
             ))}
           </ul>
         )}

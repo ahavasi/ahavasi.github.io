@@ -21,7 +21,6 @@ data.projects.forEach((p) =>
       p.role &&
       p.logoKey &&
       Array.isArray(p.tags) &&
-      Array.isArray(p.bullets) &&
       typeof p.links === "object" &&
       p.links !== null,
     `project ${p.name}`,

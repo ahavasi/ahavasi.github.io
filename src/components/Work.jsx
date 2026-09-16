@@ -1,10 +1,11 @@
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 import resumeData from "../resumeData";
 import ProjectCard from "./ProjectCard";
 import "./Work.css";
 
-const { projects } = resumeData;
+const { projects, social } = resumeData;
 
 const CATEGORY_ORDER = ["iOS", "Web", "Client"];
 const FILTERS = [
@@ -84,6 +85,20 @@ export default function Work() {
           ))}
         </AnimatePresence>
       </motion.div>
+
+      <motion.a
+        className="work-appstore"
+        href={social.appStore}
+        target="_blank"
+        rel="noopener noreferrer"
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      >
+        All 6 of my apps on the App Store
+        <ArrowUpRight size={16} aria-hidden="true" />
+      </motion.a>
     </section>
   );
 }

@@ -74,17 +74,19 @@ to live.
 - Voice is direct, first person, and concrete — "I build web & iOS apps — for my products, and
   for yours." No agency plural, no hype adjectives, no invented scale.
 - Products referenced by their own names and real URLs: LiftLogic (liftlogic.fit), BodyTree
-  (bodytree.app), drivway (drivway.co), CardStock, SimpleSelfBudget, Elite Equine Events
-  (eliteequineevents.com), Valz Corner.
+  (bodytree.app), drivway (drivway.co), CardOps (cardops.app), Simple Self Budget, Marquee,
+  Elite Equine Events (eliteequineevents.com), Valz Corner. Names match the App Store listing
+  exactly — the shipped name is the canonical one, never an internal or former codename.
 - Brand favicon at `public/favicon.svg`; portrait at `public/andrehavasi.jpg`.
 
 ## Evidence on Hand
 
 Real and usable:
 
-- **Seven shipped projects** with roles, pitches, stacks, and outcome bullets in
-  `src/resumeData.js`; two have live App Store listings (LiftLogic, BodyTree) and five have
-  live sites.
+- **Eight shipped projects** with roles, pitches, and stacks in `src/resumeData.js`; six have
+  live App Store listings (LiftLogic, BodyTree, drivway, CardOps, Simple Self Budget, Marquee)
+  and five have live sites. Cards carry a one-line pitch and tags, no outcome bullets — the
+  Work section closes with a link to the App Store developer page instead.
 - **Project logos and app icons** bundled under `src/assets/logos/`, resolved by `logoKey`.
   Every project card renders its mark on the shared gradient plate; there are no screenshots.
 - **Verified employment history** — Jamf (2021–present, 2020–21 intern), Elite Equine Events

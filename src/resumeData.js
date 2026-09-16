@@ -67,15 +67,10 @@ export default {
       role: "Founder",
       pitch: "AI-assisted workout tracking that feels like a training partner.",
       tags: ["SwiftUI", "Firebase", "Apple Watch", "AI"],
-      bullets: [
-        "Built an AI-assisted fitness platform in SwiftUI with a Firebase backend, Apple Watch verification, and analytics dashboards.",
-        "Architected services for workout logging, performance metrics, and dynamic exercise updates.",
-        "Own end-to-end product, UI/UX, and growth.",
-      ],
       links: {
         site: "https://liftlogic.fit",
         appStore:
-          "https://apps.apple.com/us/app/liftlogic-train-with-purpose/id6740549754",
+          "https://apps.apple.com/us/app/liftlogic-weightlifting/id6740549754",
       },
     },
     {
@@ -86,14 +81,10 @@ export default {
       role: "Founder",
       pitch: "A skill-tree for calisthenics — prove what you can do.",
       tags: ["iOS", "Android", "Firebase"],
-      bullets: [
-        "Native iOS + Android app for tracking calisthenics skill progression and proving mastered movements.",
-        "Designed a video-game-style skill tree grounded in real physical achievement.",
-        "Shared data pipeline exports exercise and branch data to both native apps.",
-      ],
       links: {
         site: "https://bodytree.app",
-        appStore: "https://apps.apple.com/us/app/bodytree/id6760244558",
+        appStore:
+          "https://apps.apple.com/us/app/bodytree-calisthenics/id6760244558",
       },
     },
     {
@@ -104,43 +95,38 @@ export default {
       role: "Founder",
       pitch:
         "A marketplace connecting drivers with mobile car-repair technicians.",
-      tags: ["React", "TypeScript", "Firebase", "Cloudflare"],
-      bullets: [
-        "Marketplace matching customers with local, often mobile, repair technicians at upfront per-service prices.",
-        "React + TypeScript + Vite frontend on Cloudflare Pages; Firebase auth, data, and functions backend.",
-        "Role-based flows for customers vs technicians, with reviews and area search.",
-      ],
-      links: { site: "https://drivway.co" },
+      tags: ["React", "TypeScript", "SwiftUI", "Firebase", "Cloudflare"],
+      links: {
+        site: "https://drivway.co",
+        appStore:
+          "https://apps.apple.com/us/app/drivway-car-repair-near-you/id6794942326",
+      },
     },
     {
       id: 3,
-      name: "CardStock",
-      logoKey: "cardstock",
+      name: "CardOps",
+      logoKey: "cardops",
       category: "iOS",
       role: "Personal",
-      pitch: "Scan, price, and sell Pokémon cards at shows.",
+      pitch: "Inventory, pricing, and profit for card vendors who sell at shows.",
       tags: ["SwiftUI", "SwiftData", "CloudKit", "Cloudflare Workers"],
-      bullets: [
-        "iOS app for card vendors: scan cards, track inventory, and sell fast with live market pricing.",
-        "SwiftData + CloudKit sync; a Cloudflare Worker aggregates catalog and price data.",
-        "Real-time pricing from TCGplayer market prices and PriceCharting sold history.",
-      ],
-      links: {},
+      links: {
+        site: "https://cardops.app",
+        appStore:
+          "https://apps.apple.com/us/app/cardops-tcg-vendor-tracker/id6790439848",
+      },
     },
     {
       id: 4,
-      name: "SimpleSelfBudget",
+      name: "Simple Self Budget",
       logoKey: "simpleselfbudget",
       category: "iOS",
       role: "Personal",
       pitch: "Friction-free monthly budgeting that lives on your devices.",
       tags: ["SwiftUI", "SwiftData", "CloudKit"],
-      bullets: [
-        "A private, single-user budget tracker: log an expense in under 10 seconds and see budget impact instantly.",
-        "SwiftData + CloudKit private sync — no bank feeds, no third-party servers.",
-        "Focused on one job: monthly category budgeting, done well.",
-      ],
-      links: {},
+      links: {
+        appStore: "https://apps.apple.com/us/app/simple-self-budget/id6758739138",
+      },
     },
     {
       id: 5,
@@ -150,10 +136,6 @@ export default {
       role: "Contract",
       pitch: "An event-management platform for an equestrian show series.",
       tags: ["React", "TypeScript", "Firebase", "Square"],
-      bullets: [
-        "Built and maintain the show platform end to end: event catalog, multi-step rider and horse registration, back numbers, scoring, and series standings.",
-        "React + TypeScript on a Firebase backend, with Square payment links, Google Maps event locations, and role-based admin permissions.",
-      ],
       links: { site: "https://eliteequineevents.com" },
     },
     {
@@ -164,11 +146,19 @@ export default {
       role: "Contract",
       pitch: "A ground-up redesign of an oil painter's portfolio & shop.",
       tags: ["Web Design", "UI/UX", "Frontend", "E-commerce"],
-      bullets: [
-        "Redesigning the portfolio and store for artist Val Chan — a gallery-first experience that puts the paintings front and center.",
-        "Modernizing layout, navigation, and storefront while preserving the minimal, art-forward aesthetic.",
-      ],
       links: { site: "https://www.valzcorner.com" },
+    },
+    {
+      id: 7,
+      name: "Marquee",
+      logoKey: "marquee",
+      category: "iOS",
+      role: "Personal",
+      pitch: "Track movies, TV, and anime — and see where to watch them.",
+      tags: ["SwiftUI", "SwiftData", "CloudKit", "WidgetKit"],
+      links: {
+        appStore: "https://apps.apple.com/us/app/marquee-tv-movies/id6794869427",
+      },
     },
   ],
   experience: [
@@ -234,6 +224,7 @@ export default {
   social: {
     linkedin: "https://www.linkedin.com/in/andre-havasi-63952316b/",
     github: "https://github.com/ahavasi",
+    appStore: "https://apps.apple.com/us/developer/andre-havasi/id1785545529",
     email: "andre.havasi@icloud.com",
   },
 };
