@@ -1,31 +1,22 @@
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
-import liftlogic from "../assets/logos/liftlogic-logo.png";
-import equine from "../assets/logos/equine-logo.webp";
-import bodytree from "../assets/logos/bodytree-logo.png";
+import liftlogic from "../assets/logos/liftlogic-logo.webp";
+import eliteequine from "../assets/logos/eliteequine-logo.webp";
+import bodytree from "../assets/logos/bodytree-logo.webp";
 import drivway from "../assets/logos/drivway-logo.png";
-import cardstock from "../assets/logos/cardstock-logo.png";
-import simpleselfbudget from "../assets/logos/simpleselfbudget-logo.png";
+import cardstock from "../assets/logos/cardstock-logo.webp";
+import simpleselfbudget from "../assets/logos/simpleselfbudget-logo.webp";
 import valzcorner from "../assets/logos/valzcorner-logo.webp";
-import liftlogicCover from "../assets/covers/liftlogic-cover.webp";
-import bodytreeCover from "../assets/covers/bodytree-cover.webp";
-import simpleselfbudgetCover from "../assets/covers/simpleselfbudget-cover.webp";
 import "./ProjectCard.css";
 
 const LOGOS = {
   liftlogic,
-  equine,
+  eliteequine,
   bodytree,
   drivway,
   cardstock,
   simpleselfbudget,
   valzcorner,
-};
-
-const COVERS = {
-  liftlogic: liftlogicCover,
-  bodytree: bodytreeCover,
-  simpleselfbudget: simpleselfbudgetCover,
 };
 
 const ROLE_CLASS = {
@@ -58,7 +49,6 @@ export default function ProjectCard({ project, index = 0 }) {
     links = {},
   } = project;
   const logoSrc = LOGOS[logoKey];
-  const coverSrc = COVERS[logoKey];
   const linkEntries = Object.entries(links).filter(([, href]) => Boolean(href));
 
   return (
@@ -74,30 +64,12 @@ export default function ProjectCard({ project, index = 0 }) {
         delay: Math.min(index, 6) * 0.05,
       }}
     >
-      <div className={`project-cover${coverSrc ? "" : " project-cover--brand"}`}>
-        {coverSrc ? (
-          <>
-            <img
-              className="project-cover-img"
-              src={coverSrc}
-              alt={`${name} screenshot`}
-              loading="lazy"
-            />
-            {logoSrc && (
-              <img
-                className="project-cover-badge"
-                src={logoSrc}
-                alt=""
-                aria-hidden="true"
-                loading="lazy"
-              />
-            )}
-          </>
-        ) : logoSrc ? (
+      <div className="project-cover">
+        {logoSrc ? (
           <img
-            className="project-cover-brand-logo"
+            className="project-cover-logo"
             src={logoSrc}
-            alt={name}
+            alt=""
             loading="lazy"
           />
         ) : (

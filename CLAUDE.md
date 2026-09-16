@@ -51,14 +51,19 @@ local `ICONS` object — a new icon name must be imported and added there or the
 nothing.
 
 **Project images** are string-keyed the same way: `project.logoKey` resolves through the `LOGOS`
-and `COVERS` maps in `ProjectCard.jsx`, built from static imports of `src/assets/logos/*` and
-`src/assets/covers/*`. Assets under `src/assets/` are bundled and hashed by Vite; files in
-`public/` are copied verbatim and referenced by absolute path (`/favicon.svg`).
+map in `ProjectCard.jsx`, built from static imports of `src/assets/logos/*`. Every card renders
+that one mark on a shared gradient plate — there are no screenshots. Assets under `src/assets/`
+are bundled and hashed by Vite; files in `public/` are copied verbatim and referenced by absolute
+path (`/favicon.svg`).
 
 ## Gotchas
 
 - `Work.jsx` derives its filter chips from `CATEGORY_ORDER = ["iOS", "Web", "Client"]`. A project
   with a `category` outside that list is rendered under "All" but gets no chip.
+- Logo assets must be **square-canvas**: `.project-cover-logo` masks them with a percentage
+  `border-radius` (22.4%, the iOS squircle ratio), which only reads as a squircle on a square
+  image and stays correct as the card resizes. A fixed px radius under-rounds in the
+  single-column layout, where the logo paints ~40% larger.
 - `Nav.jsx` has its own hardcoded `NAV_LINKS` (about, work, experience, skills). Adding a section
   to `App.jsx` does not add it to the nav; `services` and `contact` are reached by CTA only.
 - ESLint config is legacy `.eslintrc.cjs`, not flat config — the `--ext js,jsx` flag in the lint

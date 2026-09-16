@@ -144,17 +144,17 @@ export default {
     },
     {
       id: 5,
-      name: "Equine Logistics LLC",
-      logoKey: "equine",
+      name: "Elite Equine Events",
+      logoKey: "eliteequine",
       category: "Client",
       role: "Contract",
-      pitch: "A custom web platform for a logistics company.",
-      tags: ["React", "Vite", "Firebase"],
+      pitch: "An event-management platform for an equestrian show series.",
+      tags: ["React", "TypeScript", "Firebase", "Square"],
       bullets: [
-        "Built and maintain company web systems: scheduling, data tracking, and client management.",
-        "Improved operational efficiency with dynamic interfaces and automated workflows across microservices.",
+        "Built and maintain the show platform end to end: event catalog, multi-step rider and horse registration, back numbers, scoring, and series standings.",
+        "React + TypeScript on a Firebase backend, with Square payment links, Google Maps event locations, and role-based admin permissions.",
       ],
-      links: { site: "https://www.equinelogisticsllc.com" },
+      links: { site: "https://eliteequineevents.com" },
     },
     {
       id: 6,
@@ -184,8 +184,8 @@ export default {
     },
     {
       id: 2,
-      title: "Contract Web Developer, Equine Logistics LLC; Remote — 2024-Present",
-      desc: "Developed and maintain company web systems, including scheduling, data tracking, and client management tools. Improved operational efficiency through dynamic interfaces and automated workflows across multiple microservices.",
+      title: "Contract Web Developer, Elite Equine Events; Remote — 2024-Present",
+      desc: "Build and maintain the event-management platform for an equestrian show series: event catalog, multi-step rider and horse registration, payments, scoring, and series standings. React + TypeScript SPA on Firebase Auth, Firestore, Storage, and Cloud Functions, with Square payment links and role-based admin permissions.",
     },
   ],
   education:

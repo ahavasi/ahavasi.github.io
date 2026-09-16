@@ -74,8 +74,8 @@ to live.
 - Voice is direct, first person, and concrete — "I build web & iOS apps — for my products, and
   for yours." No agency plural, no hype adjectives, no invented scale.
 - Products referenced by their own names and real URLs: LiftLogic (liftlogic.fit), BodyTree
-  (bodytree.app), drivway (drivway.co), CardStock, SimpleSelfBudget, Equine Logistics LLC,
-  Valz Corner.
+  (bodytree.app), drivway (drivway.co), CardStock, SimpleSelfBudget, Elite Equine Events
+  (eliteequineevents.com), Valz Corner.
 - Brand favicon at `public/favicon.svg`; portrait at `public/andrehavasi.jpg`.
 
 ## Evidence on Hand
@@ -83,11 +83,11 @@ to live.
 Real and usable:
 
 - **Seven shipped projects** with roles, pitches, stacks, and outcome bullets in
-  `src/resumeData.js`; two have live App Store listings (LiftLogic, BodyTree) and four have
+  `src/resumeData.js`; two have live App Store listings (LiftLogic, BodyTree) and five have
   live sites.
-- **Project logos and cover screenshots** bundled under `src/assets/logos/` and
-  `src/assets/covers/`, resolved by `logoKey`.
-- **Verified employment history** — Jamf (2021–present, 2020–21 intern), Equine Logistics LLC
+- **Project logos and app icons** bundled under `src/assets/logos/`, resolved by `logoKey`.
+  Every project card renders its mark on the shared gradient plate; there are no screenshots.
+- **Verified employment history** — Jamf (2021–present, 2020–21 intern), Elite Equine Events
   contract (2024–present) — and a University of Minnesota CS degree (2017–2020).
 - **Stats are accurate counts** and must stay accurate as work changes: 5+ years shipping, 6
   apps and platforms built, 3 products founded. Never rounded up for effect.
