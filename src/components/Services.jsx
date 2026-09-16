@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import {
   ArrowRight,
+  ArrowUpRight,
   Globe,
   Smartphone,
   Rocket,
@@ -9,6 +10,7 @@ import {
   Compass,
 } from "lucide-react";
 import resumeData from "../resumeData";
+import { mailtoFor } from "../lib/mailto";
 import "./Services.css";
 
 const ICONS = { Globe, Smartphone, Rocket, Sparkles, Server, Compass };
@@ -44,20 +46,30 @@ export default function Services() {
 
         <motion.p className="services-intro" variants={item}>
           Have an idea? Here&apos;s how I can help bring it to life — a website,
-          an app, or automating the busywork behind the scenes.
+          an app, or automating the busywork behind the scenes. Pick the closest
+          one and it opens an email with the subject already filled in.
         </motion.p>
 
         <div className="services-grid">
           {services.map((s) => {
             const Icon = ICONS[s.icon];
             return (
-              <motion.div className="service-card" variants={item} key={s.title}>
+              <motion.a
+                className="service-card"
+                variants={item}
+                key={s.title}
+                href={mailtoFor(s.title)}
+              >
                 <div className="service-icon" aria-hidden="true">
                   {Icon ? <Icon size={26} /> : null}
                 </div>
                 <h3 className="service-title">{s.title}</h3>
                 <p className="service-desc">{s.desc}</p>
-              </motion.div>
+                <span className="service-action">
+                  Start this
+                  <ArrowUpRight size={15} aria-hidden="true" />
+                </span>
+              </motion.a>
             );
           })}
         </div>

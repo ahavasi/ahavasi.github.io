@@ -41,6 +41,28 @@
   box-shadow: var(--shadow), 0 0 60px -24px color-mix(in srgb, var(--accent) 60%, transparent);
 }
 
+.service-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.service-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: auto;
+  padding-top: var(--sp-2);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.service-card:hover .service-action,
+.service-card:focus-visible .service-action {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .service-icon {
   display: inline-flex;
   align-items: center;

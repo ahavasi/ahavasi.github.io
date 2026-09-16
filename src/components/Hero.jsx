@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight, Mail } from "lucide-react";
 import resumeData from "../resumeData";
 import "./Hero.css";
@@ -16,11 +16,7 @@ const GithubIcon = (props) => (
   </svg>
 );
 
-const { name, heroHeadline, taglines, social } = resumeData;
-
-const prefersReducedMotion = () =>
-  typeof window !== "undefined" &&
-  window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+const { name, heroHeadline, heroSupport, credentials, social } = resumeData;
 
 const container = {
   hidden: { opacity: 0 },
@@ -36,21 +32,11 @@ const item = {
 };
 
 export default function Hero() {
-  const [index, setIndex] = useState(0);
-  const [reduced, setReduced] = useState(prefersReducedMotion);
   const [inView, setInView] = useState(true);
   const sectionRef = useRef(null);
 
-  useEffect(() => {
-    if (typeof window === "undefined" || !window.matchMedia) return undefined;
-    const mql = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const onChange = (e) => setReduced(e.matches);
-    mql.addEventListener("change", onChange);
-    return () => mql.removeEventListener("change", onChange);
-  }, []);
-
-  // The hero's looping decoration and the tagline rotator both cost frames for
-  // as long as they run, so neither runs while the hero is off-screen.
+  // Looping decoration costs frames for as long as it runs, so it stops once
+  // the hero is scrolled past.
   useEffect(() => {
     const el = sectionRef.current;
     if (!el || typeof IntersectionObserver === "undefined") return undefined;
@@ -62,16 +48,12 @@ export default function Hero() {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    if (reduced || !inView || taglines.length <= 1) return undefined;
-    const id = window.setInterval(() => {
-      setIndex((prev) => (prev + 1) % taglines.length);
-    }, 2500);
-    return () => window.clearInterval(id);
-  }, [reduced, inView]);
-
   return (
-    <section id="hero" className={`hero${inView ? "" : " is-idle"}`} ref={sectionRef}>
+    <section
+      id="hero"
+      className={`hero${inView ? "" : " is-idle"}`}
+      ref={sectionRef}
+    >
       <div className="hero-bg" aria-hidden="true">
         <span className="hero-glow hero-glow--violet" />
         <span className="hero-glow hero-glow--blue" />
@@ -90,41 +72,28 @@ export default function Hero() {
             Available for freelance &amp; contract work
           </motion.p>
 
-          <motion.h1 className="hero-name" variants={item}>
-            {name}
+          <motion.h1 className="hero-headline" variants={item}>
+            {heroHeadline}
           </motion.h1>
 
-          <motion.p className="hero-headline" variants={item}>
-            {heroHeadline}
+          <motion.p className="hero-support" variants={item}>
+            {heroSupport}
           </motion.p>
 
-          <motion.div className="hero-tagline" variants={item}>
-            <span className="hero-tagline-label">Currently:</span>
-            {reduced ? (
-              <span className="hero-tagline-text">{taglines.join(" · ")}</span>
-            ) : (
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={index}
-                  className="hero-tagline-text"
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -12 }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
-                >
-                  {taglines[index]}
-                </motion.span>
-              </AnimatePresence>
-            )}
-          </motion.div>
+          <motion.p className="hero-credentials" variants={item}>
+            <span className="hero-credentials-name">{name}</span>
+            {credentials.map((fact) => (
+              <span key={fact}>{fact}</span>
+            ))}
+          </motion.p>
 
           <motion.div className="hero-cta" variants={item}>
             <a className="hero-btn hero-btn--primary" href="#contact">
-              Hire Me
+              Start a project
               <ArrowRight size={18} aria-hidden="true" />
             </a>
             <a className="hero-btn hero-btn--ghost" href="#work">
-              View Work
+              View work
             </a>
           </motion.div>
 
@@ -164,7 +133,11 @@ export default function Hero() {
         </motion.div>
       </motion.div>
 
-      <a className="hero-scroll" href="#about" aria-label="Skip to the about section">
+      <a
+        className="hero-scroll"
+        href="#services"
+        aria-label="Skip to what I can build for you"
+      >
         <span className="hero-scroll-line" aria-hidden="true" />
         Scroll
       </a>

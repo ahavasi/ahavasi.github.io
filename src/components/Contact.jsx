@@ -1,6 +1,8 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Mail } from "lucide-react";
+import { Check, Copy, Mail } from "lucide-react";
 import resumeData from "../resumeData";
+import { emailAddress, mailtoFor } from "../lib/mailto";
 import "./Contact.css";
 
 const { name, social } = resumeData;
@@ -31,6 +33,27 @@ const item = {
 };
 
 export default function Contact() {
+  const [copied, setCopied] = useState(false);
+  // Absent over plain http and in some embedded browsers; the address stays
+  // visible as text either way, so the button simply doesn't render.
+  const canCopy =
+    typeof navigator !== "undefined" && Boolean(navigator.clipboard);
+
+  useEffect(() => {
+    if (!copied) return undefined;
+    const id = window.setTimeout(() => setCopied(false), 2000);
+    return () => window.clearTimeout(id);
+  }, [copied]);
+
+  const copyAddress = async () => {
+    try {
+      await navigator.clipboard.writeText(emailAddress);
+      setCopied(true);
+    } catch {
+      setCopied(false);
+    }
+  };
+
   return (
     <section id="contact" className="section contact">
       <motion.div
@@ -53,13 +76,39 @@ export default function Contact() {
         </motion.p>
 
         <motion.div className="contact-cta" variants={item}>
-          <a
-            href={`mailto:${social.email}`}
-            className="contact-btn contact-btn--primary"
-          >
+          <a href={mailtoFor()} className="contact-btn contact-btn--primary">
             <Mail size={18} aria-hidden="true" />
-            Get in touch
+            Start a project
           </a>
+          <p className="contact-hint">
+            Opens an email with a short brief already laid out.
+          </p>
+        </motion.div>
+
+        <motion.div className="contact-address" variants={item}>
+          <span className="contact-address-label">Or email me directly</span>
+          <span className="contact-address-row">
+            <a className="contact-address-value" href={`mailto:${emailAddress}`}>
+              {emailAddress}
+            </a>
+            {canCopy && (
+              <button
+                type="button"
+                className="contact-copy"
+                onClick={copyAddress}
+              >
+                {copied ? (
+                  <Check size={15} aria-hidden="true" />
+                ) : (
+                  <Copy size={15} aria-hidden="true" />
+                )}
+                {copied ? "Copied" : "Copy"}
+              </button>
+            )}
+          </span>
+          <span className="contact-copy-status visually-hidden" role="status">
+            {copied ? "Address copied to clipboard" : ""}
+          </span>
         </motion.div>
 
         <motion.div className="contact-social" variants={item}>
@@ -86,7 +135,9 @@ export default function Contact() {
 
       <footer className="contact-footer">
         <p className="contact-footer-name">{name}</p>
-        <p className="contact-footer-copy">&copy; 2026. All rights reserved.</p>
+        <p className="contact-footer-copy">
+          &copy; {new Date().getFullYear()}. All rights reserved.
+        </p>
       </footer>
     </section>
   );

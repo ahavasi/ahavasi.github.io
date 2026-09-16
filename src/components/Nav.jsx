@@ -5,6 +5,7 @@ import resumeData from "../resumeData";
 import "./Nav.css";
 
 const NAV_LINKS = [
+  { id: "services", label: "Services" },
   { id: "about", label: "About" },
   { id: "work", label: "Work" },
   { id: "experience", label: "Experience" },
@@ -103,7 +104,7 @@ export default function Nav() {
 
         <div className="nav-actions">
           <a className="nav-cta" href="#contact">
-            Hire Me
+            Start a project
           </a>
 
           <button
@@ -155,7 +156,7 @@ export default function Nav() {
                 href="#contact"
                 onClick={closeMenu}
               >
-                Hire Me
+                Start a project
               </a>
             </motion.nav>
           </motion.div>

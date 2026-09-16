@@ -1,22 +1,30 @@
 export default {
   name: "Andre Havasi",
-  title: "Software Engineer · Founder · Builder-for-hire",
-  heroHeadline: "I build web & iOS apps — for my products, and for yours.",
-  taglines: [
-    "Software Engineer @ Jamf",
-    "Founder of LiftLogic",
-    "iOS & Web Developer",
-    "Builder-for-hire",
+  heroHeadline: "I take your idea to the App Store — or the open web.",
+  heroSupport:
+    "Web and iOS apps, built end to end and shipped: my own products, and yours.",
+  credentials: [
+    "Software Engineer at Jamf",
+    "5+ years shipping",
+    "6 apps built, 3 founded",
   ],
+  enquiry: {
+    subject: "Project enquiry",
+    body: [
+      "What you want built:",
+      "",
+      "Rough timeline:",
+      "",
+      "Rough budget:",
+      "",
+      "Any hard deadline:",
+      "",
+    ].join("\n"),
+  },
   about: [
     "I'm Andre Havasi — a software engineer at Jamf and the founder of LiftLogic. For 5+ years I've shipped production software: backend systems and APIs that power enterprise device management, plus a shelf of my own iOS and web apps.",
     "I design, build, and ship complete products end-to-end — SwiftUI apps, React web platforms, and the Firebase and Cloud backends behind them. I also build for clients who need a real product shipped, not a prototype.",
-    "Got an app or website idea? I can take it from concept to the App Store or the open web. Let's build something.",
-  ],
-  stats: [
-    { value: "5+", label: "Years shipping software" },
-    { value: "6", label: "Apps & platforms built" },
-    { value: "3", label: "Products founded" },
+    "Got an app or website idea? Tell me what you're building and I'll tell you how I'd ship it.",
   ],
   services: [
     {

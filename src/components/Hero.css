@@ -133,52 +133,42 @@
   100% { box-shadow: 0 0 0 0 transparent; }
 }
 
-/* ---------- Name ---------- */
-.hero-name {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(2.75rem, 9vw, 6rem);
-  line-height: 1.02;
-  letter-spacing: -0.02em;
-  background: linear-gradient(120deg, var(--accent-deep), var(--accent));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  text-wrap: balance;
-}
-
+/* ---------- Headline ---------- */
 .hero-headline {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(1.25rem, 3.2vw, 2rem);
-  line-height: 1.2;
+  font-weight: 700;
+  font-size: clamp(2.25rem, 5.5vw, 3.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
   color: var(--text);
-  max-width: 18ch;
+  max-width: 22ch;
   text-wrap: balance;
 }
 
-/* ---------- Tagline ---------- */
-.hero-tagline {
-  display: inline-flex;
+.hero-support {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: var(--text-dim);
+  max-width: 46ch;
+}
+
+.hero-credentials {
+  display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   gap: var(--sp-2);
-  font-size: clamp(1rem, 2vw, 1.15rem);
-  min-height: 1.6em;
-}
-
-.hero-tagline-label {
+  font-size: 0.9rem;
   color: var(--text-dim);
-  font-weight: 500;
 }
 
-.hero-tagline-text {
-  display: inline-block;
+.hero-credentials-name {
   font-weight: 600;
-  color: transparent;
-  background: linear-gradient(120deg, var(--accent-deep), var(--accent));
-  -webkit-background-clip: text;
-  background-clip: text;
+  color: var(--text);
+}
+
+.hero-credentials span + span::before {
+  content: "·";
+  margin-right: var(--sp-2);
+  color: var(--border);
 }
 
 /* ---------- CTAs ---------- */
@@ -360,13 +350,13 @@
   }
   .hero-copy {
     align-items: center;
-    order: 2;
   }
-  .hero-headline {
-    max-width: 26ch;
+  .hero-headline,
+  .hero-support {
+    max-width: 30ch;
   }
-  .hero-portrait {
-    order: 1;
+  .hero-credentials {
+    justify-content: center;
   }
 }
 

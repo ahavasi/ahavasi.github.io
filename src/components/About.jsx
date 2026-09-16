@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 import resumeData from "../resumeData";
+import { mailtoFor } from "../lib/mailto";
 import "./About.css";
 
-const { about, stats } = resumeData;
+const { about } = resumeData;
 
 const container = {
   hidden: { opacity: 0 },
@@ -42,21 +44,11 @@ export default function About() {
             {paragraph}
           </motion.p>
         ))}
-      </motion.div>
 
-      <motion.div
-        className="about-stats"
-        variants={container}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.3 }}
-      >
-        {stats.map(({ value, label }) => (
-          <motion.div className="about-stat" variants={item} key={label}>
-            <span className="about-stat-value">{value}</span>
-            <span className="about-stat-label">{label}</span>
-          </motion.div>
-        ))}
+        <motion.a className="about-cta" variants={item} href={mailtoFor()}>
+          Start a project
+          <ArrowUpRight size={16} aria-hidden="true" />
+        </motion.a>
       </motion.div>
     </section>
   );

@@ -7,8 +7,9 @@ const req = (c, m) => {
   }
 };
 
-req(data.name && data.title, "name/title");
-req(Array.isArray(data.taglines) && data.taglines.length, "taglines");
+req(data.name && data.heroHeadline && data.heroSupport, "name/hero copy");
+req(Array.isArray(data.credentials) && data.credentials.length, "credentials");
+req(data.enquiry?.subject && data.enquiry?.body, "enquiry template");
 req(Array.isArray(data.about) && data.about.length >= 2, "about paragraphs");
 
 req(Array.isArray(data.projects) && data.projects.length > 0, "projects");
